@@ -136,10 +136,10 @@ for dirpath, dirnames, filenames in os.walk(root_folder_path):
                 continue
             
             avgifter=get_fast_avgift()    
-            df_elias=get_all_instruments() 
+            df_innehav=get_all_instruments() 
             fond_dict["översikt"]=översikt
             fond_dict["avgifter"]=avgifter
-            fond_dict["innehav"]=df_elias
+            fond_dict["innehav"]=df_innehav
             mappning=pd.concat([mappning,pd.DataFrame({"fond_namn":[översikt["fond_namn"]],"isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
             alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
     
