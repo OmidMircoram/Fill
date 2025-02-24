@@ -2,7 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import functools
-from read_xml_new import normalize_name, find_best_name_match, read_funds_data
+from old.read_xml_new import normalize_name, find_best_name_match, read_funds_data
 
 # Cache the data loading function
 @functools.lru_cache(maxsize=None)

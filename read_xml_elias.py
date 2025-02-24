@@ -21,19 +21,21 @@ def check_aktiv(element):
      else:
           return True
 def find_element(nivå,elements):
+    namespace= {'ns': 'http://schemas.fi.se/publika/vardepappersfonder/20200331'}
     string="./"
     for sub_element in elements:
         string=string + "/ns:"+sub_element  
     return nivå.find(string,namespace)
 
 def find_all_elements(nivå,elements):
+    namespace= {'ns': 'http://schemas.fi.se/publika/vardepappersfonder/20200331'}
     string="./"
     for sub_element in elements:
         string=string + "/ns:"+sub_element  
     return nivå.findall(string,namespace)
 
 
-def get_fund_overview():
+def get_fund_overview(root):
     fond_namn = find_element(root,['Fondinformation','Fond_namn']).text
     fond_isin = find_element(root,["Fondinformation","Fond_ISIN-kod"]) 
     fond_isin = check_none(fond_isin, "Unknown")
@@ -89,7 +91,7 @@ def unikt_instrument(instrument):
     return instrument_dict
 
 
-def get_all_instruments():
+def get_all_instruments(root):
     alla_instrument=find_all_elements(root,['FinansielltInstrument'])
     df_instrument=pd.DataFrame()
     for instrument in alla_instrument:
@@ -97,7 +99,7 @@ def get_all_instruments():
         df_instrument=pd.concat([df_instrument,temp_df],axis=0)
     return df_instrument
 
-def get_fast_avgift():
+def get_fast_avgift(root):
     #Lägg till så alla andelsklasser sparas, inte bara den senaste.
     alla_andelsklasser=find_all_elements(root,["Förvaltningsavgift","MedAndelsklasser","Förvaltningsavgift"])
     alla_utan=find_all_elements(root,["Förvaltningsavgift","UtanAndelsklasser"])
@@ -113,36 +115,35 @@ def get_fast_avgift():
         avgift_dict={"utan_andelsklass" : avgift}
     return avgift_dict
 
-
-
-test_elias=pd.DataFrame()
-root_folder_path = "data"
-namespace= {'ns': 'http://schemas.fi.se/publika/vardepappersfonder/20200331'}
-tid=0
-alla_fonder={}
-mappning=pd.DataFrame({"fond_namn":[],"isin":[]})
-for dirpath, dirnames, filenames in os.walk(root_folder_path):
-    for filename in filenames:
-        fond_dict={}
-        if filename.endswith('.xml'):  # Process only XML files
-            file_path = os.path.join(dirpath, filename)
-            tree = ET.parse(file_path)
-            root = tree.getroot()
-            översikt=get_fund_overview()
-            fond_status_element =find_element(root,['Fondinformation','Fond_status'])    
-            aktiv=check_aktiv(fond_status_element)
-            if not aktiv:
-                print(f"Skipping {översikt['fond_namn']}: Fund is inactive (Ej aktiv fond).")
-                continue
-            
-            avgifter=get_fast_avgift()    
-            df_innehav=get_all_instruments() 
-            fond_dict["översikt"]=översikt
-            fond_dict["avgifter"]=avgifter
-            fond_dict["innehav"]=df_innehav
-            mappning=pd.concat([mappning,pd.DataFrame({"fond_namn":[översikt["fond_namn"]],"isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
-            alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
+def main(): 
+    root_folder_path = "data"
     
+    tid=0
+    alla_fonder={}
+    mappning=pd.DataFrame({"fond_namn":[],"isin":[]})
+    for dirpath, dirnames, filenames in os.walk(root_folder_path):
+        for filename in filenames:
+            fond_dict={}
+            if filename.endswith('.xml'):  # Process only XML files
+                file_path = os.path.join(dirpath, filename)
+                tree = ET.parse(file_path)
+                root = tree.getroot()
+                översikt=get_fund_overview(root)
+                fond_status_element =find_element(root,['Fondinformation','Fond_status'])    
+                aktiv=check_aktiv(fond_status_element)
+                if not aktiv:
+                    print(f"Skipping {översikt['fond_namn']}: Fund is inactive (Ej aktiv fond).")
+                    continue
+                
+                avgifter=get_fast_avgift(root)    
+                df_innehav=get_all_instruments(root) 
+                fond_dict["översikt"]=översikt
+                fond_dict["avgifter"]=avgifter
+                fond_dict["innehav"]=df_innehav
+                mappning=pd.concat([mappning,pd.DataFrame({"fond_namn":[översikt["fond_namn"]],"isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
+                alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
+    return alla_fonder, mappning.drop_duplicates()
+        
 # fond_isin_kod
 
 
