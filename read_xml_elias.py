@@ -143,7 +143,5 @@ def main():
                 mappning=pd.concat([mappning,pd.DataFrame({"fond_namn":[översikt["fond_namn"]],"isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
                 alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
     return alla_fonder, mappning.drop_duplicates()
-        
-# fond_isin_kod
-
+    
 
