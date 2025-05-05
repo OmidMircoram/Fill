@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VärdepappersfondInnehav xmlns="http://schemas.fi.se/publika/vardepappersfonder/20200331">
+  <Rapportinformation>
+    <Kvartalsslut>2024-09-30</Kvartalsslut>
+  </Rapportinformation>
+  <Bolagsinformation>
+    <Fondbolag_namn>Carnegie Fonder AB</Fondbolag_namn>
+    <Fondbolag_institutnummer>58026</Fondbolag_institutnummer>
+    <Fondbolag_LEI-kod>549300HW6Q43WKYCB077</Fondbolag_LEI-kod>
+  </Bolagsinformation>
+  <Fondinformation>
+    <Fond_institutnummer>51793</Fond_institutnummer>
+    <Fond_ISIN-kod>SE0001209834</Fond_ISIN-kod>
+    <Fond_namn>Carnegie Indienfond</Fond_namn>
+    <Förvaltningsavgift>
+      <MedAndelsklasser>
+        <Förvaltningsavgift>
+          <Andelsklass_namn>CARNEGIE INDIENFOND - A - SEK</Andelsklass_namn>
+          <Förvaltningsavgift_Typ>
+            <Förvaltningsavgift_fast>2.2</Förvaltningsavgift_fast>
+          </Förvaltningsavgift_Typ>
+        </Förvaltningsavgift>
+      </MedAndelsklasser>
+    </Förvaltningsavgift>
+    <Fondförmögenhet>3471591652</Fondförmögenhet>
+    <Likvida_medel>140446463</Likvida_medel>
+    <Övriga_tillgångar_och_skulder>-151362145</Övriga_tillgångar_och_skulder>
+    <Aktiv_risk>4.87</Aktiv_risk>
+    <Standardavvikelse_24_månader>13.44</Standardavvikelse_24_månader>
+    <Jämförelseindex>
+      <Jämförelseindex>MSCI India 10/40 Net Total Return </Jämförelseindex>
+    </Jämförelseindex>
+    <FinansiellaInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Reliance Industries Ltd Dematerialised</Instrumentnamn>
+        <ISIN-kod_instrument>INE002A01018</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>341035</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>2953.15</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>121743683.17</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.51</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Energy - Fossil Fuels</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Infosys Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE009A01021</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>762000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1875.6</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>172765560.24</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>4.98</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Software and IT Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Max Healthcare Institute Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE027H01010</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>850000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>985.75</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>101285596.21</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>2.92</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Healthcare Services and Equipment</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Hindustan Unilever Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE030A01027</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>100000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>2958.3</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>35760550.1</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.03</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Personal and Household Products and Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Hindalco Industries Ltd Dematerialised</Instrumentnamn>
+        <ISIN-kod_instrument>INE038A01020</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>400000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>756.2</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>36564416.04</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.05</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Mineral Resources</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>HDFC Bank Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE040A01034</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>699034</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1732.05</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>146359427.49</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>4.22</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Banking and Investment Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Sun Pharm Industries Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE044A01036</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>565000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1926.7</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>131590495.61</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.79</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Pharmaceuticals and Medical Research</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>ICICI Bank Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE090A01021</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>1369142</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1273</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>210687550.62</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>6.07</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Banking and Investment Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Motherson Sumi Wiri India Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE0FS801015</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>6780000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>71.22</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>58370530.53</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.68</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Mahindra &amp; Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE101A01026</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>160000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>3094.9</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>59858879.23</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.72</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Cholamandalam Inv Fin Co Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE121A01024</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>540000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1608</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>104964340.56</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.02</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Banking and Investment Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Kirloskar Oil Engines Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE146L01010</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>220000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1229.3</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>32692079.01</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>.94</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial Goods</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Thermax Limited</Instrumentnamn>
+        <ISIN-kod_instrument>INE152A01029</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>55000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>5100.2</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>33908757.29</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>.98</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial Goods</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Tata Consumer Products Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE192A01025</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>477692</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1196.95</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>69117171.11</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.99</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Food and Beverages</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Supreme Industries Ltd (The)</Instrumentnamn>
+        <ISIN-kod_instrument>INE195A01028</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>166196</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>5321.65</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>106912590.44</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.08</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Chemicals</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Varun Beverages Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE200M01039</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>1500000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>606.3</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>109936221.12</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.17</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Food and Beverages</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Kalpataru Projects Intl Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE220B01022</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>330000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1367.25</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>54541094.56</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.57</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial and Commercial Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Axis Bank Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE238A01034</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>565000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1232.2</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>84157268.23</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>2.42</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Banking and Investment Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Nestle India Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE239A01024</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>200000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>2689.95</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>65033358.18</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.87</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Food and Beverages</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Persistent Systems Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE262H01021</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>192000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>5450.4</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>126500307.74</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.64</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Software and IT Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Titan Co Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE280A01028</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>188801</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>3823.95</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>87272712.16</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>2.51</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Cyclical Consumer Products</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Bajaj Finance Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE296A01024</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>174000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>7703</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>162020931.07</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>4.67</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Banking and Investment Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Cummins India Ltd Dematerialised</Instrumentnamn>
+        <ISIN-kod_instrument>INE298A01020</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>260468</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>3806.05</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>119836976.18</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.45</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Pidilite Industries Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE318A01026</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>60873</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>3359.4</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>24719996.27</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>.71</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Chemicals</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Bosch Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE323A01026</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>27144</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>37678.9</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>123632895.2</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.56</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Apar Industries Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE372A01015</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>70000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>9528.6</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>80628599</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>2.32</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial Conglomerates</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>KEC International Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE389H01022</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>195000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1038.55</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>24480709.41</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>.71</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial and Commercial Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Bharti Airtel Ltd Dematerialised</Instrumentnamn>
+        <ISIN-kod_instrument>INE397D01024</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>560000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1709.55</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>115726231.69</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.33</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Telecommunications Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Ramkrishna Forgings Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE399G01023</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>50000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1008.95</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>6098199.48</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>.18</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial Goods</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Apollo Tyres Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE438A01022</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>500000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>547.85</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>33112627.82</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>.95</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Tata Consultancy Services Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE467B01029</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>253904</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>4268.5</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>131010711.72</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.77</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Software and IT Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>UltraTech Cement Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE481G01011</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>59000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>11802</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>84172378.49</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>2.42</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Mineral Resources</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>TVS Motor Co Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE494B01023</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>105000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>2839.85</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>36045136.78</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.04</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Kansai Nerolac Paints Ltd Reg</Instrumentnamn>
+        <ISIN-kod_instrument>INE531A01024</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>1721377</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>309.5</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>64401892.06</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.86</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Chemicals</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Maruti Suzuki India Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE585B01010</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>70689</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>13238</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>113119165.38</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.26</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Automobiles and Auto Parts</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Macrotech Developers Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE670K01029</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>605000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1234.4</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>90276198.98</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>2.6</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Real Estate</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Shriram Fin Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE721A01013</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>380000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>3576.95</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>164307899.42</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>4.73</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Banking and Investment Services</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Prestige Estates Projects Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE811K01011</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>200000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>1845.25</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>44611537.09</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>1.29</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Real Estate</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>ÖverlåtbartVärdepapper</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Kei Industries Ltd</Instrumentnamn>
+        <ISIN-kod_instrument>INE878B01027</ISIN-kod_instrument>
+        <Landkod_Emittent>IN</Landkod_Emittent>
+        <Valuta>INR</Valuta>
+        <Antal>220000</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>4297.3</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>.12075</Valutakurs_instrument>
+        <Marknadsvärde_instrument>114282657.72</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>3.29</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Industrial Goods</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+    </FinansiellaInstrument>
+  </Fondinformation>
+  <Fondinformation />
+</VärdepappersfondInnehav>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VärdepappersfondInnehav xmlns="http://schemas.fi.se/publika/vardepappersfonder/20200331">
+  <Rapportinformation>
+    <Kvartalsslut>2024-09-30</Kvartalsslut>
+  </Rapportinformation>
+  <Bolagsinformation>
+    <Fondbolag_namn>Alfred Berg Kapitalforvaltning AS</Fondbolag_namn>
+    <Fondbolag_institutnummer>91</Fondbolag_institutnummer>
+    <Fondbolag_LEI-kod>549300FIWDUEJTBDTJ90</Fondbolag_LEI-kod>
+  </Bolagsinformation>
+  <Fondinformation>
+    <Fond_institutnummer>54699</Fond_institutnummer>
+    <Fond_ISIN-kod>SE0013877446</Fond_ISIN-kod>
+    <Fond_namn>Alfred Berg Obligasjon Acc</Fond_namn>
+    <Förvaltningsavgift>
+      <UtanAndelsklasser>
+        <Förvaltningsavgift_fast>0.5</Förvaltningsavgift_fast>
+      </UtanAndelsklasser>
+    </Förvaltningsavgift>
+    <Fondförmögenhet>43377864</Fondförmögenhet>
+    <Likvida_medel>74422</Likvida_medel>
+    <Övriga_tillgångar_och_skulder>181</Övriga_tillgångar_och_skulder>
+    <Aktiv_risk>0.76</Aktiv_risk>
+    <Standardavvikelse_24_månader>3.42</Standardavvikelse_24_månader>
+    <Jämförelseindex>
+      <Jämförelseindex>NORM1-RM3DUR3NOK</Jämförelseindex>
+    </Jämförelseindex>
+    <FinansiellaInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>Fondandel</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>Alfred Berg Obligasjon</Instrumentnamn>
+        <ISIN-kod_instrument>NO0010089410</ISIN-kod_instrument>
+        <Landkod_Emittent>NO</Landkod_Emittent>
+        <Valuta>NOK</Valuta>
+        <Antal>372959.3384</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>120.7747</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>0.9614</Valutakurs_instrument>
+        <Marknadsvärde_instrument>43303261</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>99.83</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Övrigt</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+    </FinansiellaInstrument>
+  </Fondinformation>
+  <Fondinformation />
+</VärdepappersfondInnehav>

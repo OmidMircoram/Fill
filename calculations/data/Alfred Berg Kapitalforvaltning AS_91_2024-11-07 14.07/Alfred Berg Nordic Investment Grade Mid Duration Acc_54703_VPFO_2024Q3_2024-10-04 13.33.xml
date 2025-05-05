@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VärdepappersfondInnehav xmlns="http://schemas.fi.se/publika/vardepappersfonder/20200331">
+  <Rapportinformation>
+    <Kvartalsslut>2024-09-30</Kvartalsslut>
+  </Rapportinformation>
+  <Bolagsinformation>
+    <Fondbolag_namn>Alfred Berg Kapitalforvaltning AS</Fondbolag_namn>
+    <Fondbolag_institutnummer>91</Fondbolag_institutnummer>
+    <Fondbolag_LEI-kod>549300DT47YM6PPU3813</Fondbolag_LEI-kod>
+  </Bolagsinformation>
+  <Fondinformation>
+    <Fond_institutnummer>54703</Fond_institutnummer>
+    <Fond_ISIN-kod>SE0013887544</Fond_ISIN-kod>
+    <Fond_namn>Alfred Berg Nordic Investment Grade Mid Duration Acc</Fond_namn>
+    <Förvaltningsavgift>
+      <MedAndelsklasser>
+        <Förvaltningsavgift>
+          <Andelsklass_namn>AB NORDIC IG MID DURATION ACC C</Andelsklass_namn>
+          <Förvaltningsavgift_Typ>
+            <Förvaltningsavgift_fast>0.5</Förvaltningsavgift_fast>
+          </Förvaltningsavgift_Typ>
+        </Förvaltningsavgift>
+        <Förvaltningsavgift>
+          <Andelsklass_namn>AB NORDIC IG MID DURATION ACC R</Andelsklass_namn>
+          <Förvaltningsavgift_Typ>
+            <Förvaltningsavgift_fast>0.45</Förvaltningsavgift_fast>
+          </Förvaltningsavgift_Typ>
+        </Förvaltningsavgift>
+      </MedAndelsklasser>
+    </Förvaltningsavgift>
+    <Fondförmögenhet>5778522810</Fondförmögenhet>
+    <Likvida_medel>6483326</Likvida_medel>
+    <Övriga_tillgångar_och_skulder>3118742</Övriga_tillgångar_och_skulder>
+    <Standardavvikelse_24_månader>5</Standardavvikelse_24_månader>
+    <Jämförelseindex>
+      <Jämförelseindex>Jämförelseindex saknas</Jämförelseindex>
+    </Jämförelseindex>
+    <FinansiellaInstrument>
+      <FinansielltInstrument>
+        <Tillgångsslag_enligt_LVF_5_kap>Fondandel</Tillgångsslag_enligt_LVF_5_kap>
+        <Instrumentnamn>AB NIG Mid Duration Classic</Instrumentnamn>
+        <ISIN-kod_instrument>NO0010811920</ISIN-kod_instrument>
+        <Landkod_Emittent>NO</Landkod_Emittent>
+        <Valuta>NOK</Valuta>
+        <Antal>57049227.1963</Antal>
+        <Nominellt_belopp />
+        <Kurs_som_använts_vid_värdering_av_instrumentet>105.1869</Kurs_som_använts_vid_värdering_av_instrumentet>
+        <Valutakurs_instrument>0.9614</Valutakurs_instrument>
+        <Marknadsvärde_instrument>5768920742</Marknadsvärde_instrument>
+        <Andel_av_fondförmögenhet_instrument>99.83</Andel_av_fondförmögenhet_instrument>
+        <Bransch>
+          <Branschkod_instrument>0</Branschkod_instrument>
+          <Bransch_namn_instrument>Övrigt</Bransch_namn_instrument>
+        </Bransch>
+      </FinansielltInstrument>
+    </FinansiellaInstrument>
+  </Fondinformation>
+  <Fondinformation />
+</VärdepappersfondInnehav>
