@@ -3,8 +3,8 @@ import pandas as pd
 from read_xml_elias import main
 alla_fonder,mappning=main()
 #%%
-nivå_dict={0:{'Handelsbanken Aktiv 100':1000,
-              'Handelsbanken Aktiv 70':1000,
+nivå_dict={0:{'Handelsbanken Pension 50':100,
+
 # "SEB Active 20" :100
 },        
 }
@@ -42,3 +42,14 @@ for i in range (nivåer):
 nivå_dict
 #%%
 alla_aktier
+#%%
+import financedatabase as fd
+#%%
+etf=fd.ETFs()
+funds=fd.Funds()
+eq=fd.Equities()
+#%%
+
+eq.options("country")
+# eq.select(country="Sweden",exclude_exchanges=True)
+# eq.select
