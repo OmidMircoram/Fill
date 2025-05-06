@@ -13,14 +13,13 @@ def accept_cookies(driver):
     for iframe in iframes:
         driver.switch_to.frame(iframe)
         try:
-            time.sleep(2)
+            time.sleep(0.5)
             accept_btn = driver.find_element(By.XPATH, "//button[@title='Accept Cookies']")
             accept_btn.click()
             print("Cookies accepted inside iframe.")
             driver.switch_to.default_content()
             break
         except NoSuchElementException:
-            print("hej")
             driver.switch_to.default_content()
             continue
 #%%
