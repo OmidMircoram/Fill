@@ -120,7 +120,7 @@ def main():
     
     tid=0
     alla_fonder={}
-    mappning=pd.DataFrame({"fond_namn":[],"isin":[]})
+    mappning=pd.DataFrame({"instrument_namn":[],"instrument_isin":[]})
     for dirpath, dirnames, filenames in os.walk(root_folder_path):
         for filename in filenames:
             fond_dict={}
@@ -140,7 +140,8 @@ def main():
                 fond_dict["översikt"]=översikt
                 fond_dict["avgifter"]=avgifter
                 fond_dict["innehav"]=df_innehav
-                mappning=pd.concat([mappning,pd.DataFrame({"fond_namn":[översikt["fond_namn"]],"isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
+                mappning=pd.concat([mappning,pd.DataFrame({"instrument_namn":[översikt["fond_namn"]],"instrument_isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
+                mappning=pd.concat([mappning,df_innehav[["instrument_namn","instrument_isin"]]])
                 alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
     return alla_fonder, mappning.drop_duplicates()
     

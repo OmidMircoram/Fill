@@ -1,9 +1,10 @@
 #%% 
 import pandas as pd 
+
 from read_xml_elias import main
 alla_fonder,mappning=main()
 #%%
-nivå_dict={0:{'Handelsbanken Pension 50':100,
+nivå_dict={0:{'Handelsbanken Aktiv 100':1000,
 
 # "SEB Active 20" :100
 },        
@@ -11,14 +12,14 @@ nivå_dict={0:{'Handelsbanken Pension 50':100,
 
 
 alla_aktier=pd.DataFrame()
-mappning=mappning.drop_duplicates()
+mappning=mappning.drop_duplicates(subset="instrument_isin")
 nivåer=100
 for i in range (nivåer):    
     fonder=nivå_dict[i]
     innehav_per_nivå=pd.DataFrame()
     for fond in fonder:
         if i==0:
-            isin=mappning.loc[mappning["fond_namn"]==fond]["isin"]
+            isin=mappning.loc[mappning["instrument_namn"]==fond]["instrument_isin"]
             if not isin.empty:  
                 isin=isin.values[0]
             else: 
