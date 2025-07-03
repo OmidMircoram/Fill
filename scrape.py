@@ -4,7 +4,9 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 import time
+
 def accept_cookies(driver):
     WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.TAG_NAME, "iframe")))
     iframes = driver.find_elements(By.TAG_NAME, "iframe")
@@ -24,22 +26,44 @@ def accept_cookies(driver):
             continue
 #%%
 fondnamn="Handelsbanken Global Digital"
-fondnamn_fixad=fondnamn.replace(" ","+")
+def scrape():
+    global alla_fonder1
+    alla_fonder1 = {}
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")
+    driver = webdriver.Chrome(options=chrome_options)
+    url="https://markets.ft.com/data/"
+    driver.get(url)
+    driver.maximize_window()
+    accept_cookies(driver)
 
-driver = webdriver.Chrome()
-url="https://markets.ft.com/data/search?query="+fondnamn_fixad
-driver.get(url)
-driver.maximize_window()
-accept_cookies(driver)
-time.sleep(1)
-tabell = driver.find_element(By.CLASS_NAME, "mod-ui-table--freeze-pane")
-rader = tabell.find_elements(By.CLASS_NAME, "mod-ui-table__cell--text")
+    for key in alla_fonder:
+        fondnamn=alla_fonder[key]["översikt"]["fond_namn"]
+        fondnamn_fixad=fondnamn.replace(" ","+")
+        print(fondnamn_fixad)
+        url="https://markets.ft.com/data/search?query="+fondnamn_fixad
+        driver.get(url)
+        
+        # time.sleep(1)
+        try: 
+            tabell = driver.find_element(By.CLASS_NAME, "mod-ui-table--freeze-pane")
+            rader = tabell.find_elements(By.CLASS_NAME, "mod-ui-table__cell--text")
+            
+            if len(rader) >0:  
+                alla_fonder1[fondnamn] = {}
+                for i in range(0, len(rader), 2):
+                    andelsklass = rader[i].text
+                    isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None
+                    alla_fonder1[fondnamn][andelsklass]=isin
+                # time.sleep(0)
+                # driver.close()
+        except: 
+            print(fondnamn_fixad, "skippad")
+            continue
+    return alla_fonder1
+#%%
+import pickle
+with open("./alla_andelsklasser.pkl", "wb") as f:
+        pickle.dump(alla_fonder1, f)
 
-alla_fonder = {}
-alla_fonder[fondnamn] = {}
-for i in range(0, len(rader), 2):
-    andelsklass = rader[i].text
-    isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None
-    alla_fonder[fondnamn][andelsklass]=isin
-time.sleep(3)
-driver.close()
+# a=scrape()
