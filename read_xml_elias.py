@@ -1,11 +1,12 @@
 #%%
-import pandas as pd
-import xml.etree.ElementTree as ET
 import os
 import re
-from rapidfuzz import process
-import numpy as np
 import time
+import xml.etree.ElementTree as ET
+
+import numpy as np
+import pandas as pd
+
 
 def normalize_name(name):
     # Remove any parentheses and content within
@@ -116,7 +117,42 @@ def get_fast_avgift(root):
     return avgift_dict
 
 def main(): 
-    root_folder_path = "data"
+    root_folder_path = "xml"
+    
+    tid=0
+    alla_fonder={}
+    mappning=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
+    for dirpath, dirnames, filenames in os.walk(root_folder_path):
+        for filename in filenames:
+            fond_dict={}
+            if filename.endswith('.xml'):  # Process only XML files
+                file_path = os.path.join(dirpath, filename)
+                tree = ET.parse(file_path)
+                root = tree.getroot()
+                översikt=get_fund_overview(root)
+                fond_status_element =find_element(root,['Fondinformation','Fond_status'])    
+                aktiv=check_aktiv(fond_status_element)
+                if not aktiv:
+                    print(f"Skipping {översikt['fond_namn']}: Fund is inactive (Ej aktiv fond).")
+                    continue
+                
+                avgifter=get_fast_avgift(root)    
+                df_innehav=get_all_instruments(root) 
+                if len(list(df_innehav.columns)) == 0:
+                    df_innehav["instrument_namn"] = []
+                    df_innehav["instrument_isin"] = []
+                df_innehav["top_key"] = översikt["fond_isin"]
+                fond_dict["översikt"]=översikt
+                fond_dict["avgifter"]=avgifter
+                fond_dict["innehav"]=df_innehav
+                mappning=pd.concat([mappning,pd.DataFrame({"instrument_namn":[översikt["fond_namn"]],"instrument_isin":[översikt["fond_isin"]], "top_key":[översikt["fond_isin"]]})]).reset_index(drop=True)
+                mappning=pd.concat([mappning,df_innehav[["instrument_namn","instrument_isin"]]])
+                alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
+    return alla_fonder, mappning.drop_duplicates()
+    
+
+def old_main(): 
+    root_folder_path = "xml"
     
     tid=0
     alla_fonder={}
@@ -144,5 +180,3 @@ def main():
                 mappning=pd.concat([mappning,df_innehav[["instrument_namn","instrument_isin"]]])
                 alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
     return alla_fonder, mappning.drop_duplicates()
-    
-

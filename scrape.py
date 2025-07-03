@@ -1,11 +1,15 @@
 #%%
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
+import pickle
 import time
+
+import pandas as pd
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 def accept_cookies(driver):
     WebDriverWait(driver, 5).until(EC.presence_of_all_elements_located((By.TAG_NAME, "iframe")))
@@ -25,9 +29,7 @@ def accept_cookies(driver):
             driver.switch_to.default_content()
             continue
 #%%
-fondnamn="Handelsbanken Global Digital"
-def scrape():
-    global alla_fonder1
+def scrape(alla_fonder):
     alla_fonder1 = {}
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
@@ -36,11 +38,11 @@ def scrape():
     driver.get(url)
     driver.maximize_window()
     accept_cookies(driver)
-
+    new_struct = pd.DataFrame()
     for key in alla_fonder:
         fondnamn=alla_fonder[key]["översikt"]["fond_namn"]
         fondnamn_fixad=fondnamn.replace(" ","+")
-        print(fondnamn_fixad)
+        # print(fondnamn_fixad)
         url="https://markets.ft.com/data/search?query="+fondnamn_fixad
         driver.get(url)
         
@@ -55,15 +57,14 @@ def scrape():
                     andelsklass = rader[i].text
                     isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None
                     alla_fonder1[fondnamn][andelsklass]=isin
+                    new_struct=pd.concat([new_struct,pd.DataFrame({"instrument_namn": [andelsklass], "instrument_isin": [isin], "top_key": [key]})],axis=0)    
                 # time.sleep(0)
                 # driver.close()
         except: 
             print(fondnamn_fixad, "skippad")
             continue
-    return alla_fonder1
+    return alla_fonder1, new_struct
 #%%
-import pickle
-with open("./alla_andelsklasser.pkl", "wb") as f:
-        pickle.dump(alla_fonder1, f)
+
 
 # a=scrape()
