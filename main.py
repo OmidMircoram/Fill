@@ -64,3 +64,4 @@ from engine_elias import portfolio
 holdings={0:{'Handelsbanken Aktiv 100':1000,},}
 current_portfolio = portfolio(holdings, alla_fonder, mappning_after_scrape)
 # %%
+aasdasdasdas=mappning_after_scrape.drop_duplicates(subset=["instrument_isin"],keep="last")

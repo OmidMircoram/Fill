@@ -143,8 +143,9 @@ def main():
                 if len(list(df_innehav.columns)) == 0:
                     print(f"Skipping {översikt['fond_namn']}: Fund has no holdings.")
                     continue
-                df_innehav["top_key"] = df_innehav["instrument_isin"].copy()
-                alla_innehav=pd.concat([alla_innehav,df_innehav[["instrument_namn","instrument_isin", "top_key"]]],axis=0)
+                # df_innehav["top_key"] = df_innehav["instrument_isin"].copy()
+
+                alla_innehav=pd.concat([alla_innehav,df_innehav[["instrument_namn","instrument_isin"]]],axis=0)
                 fond_dict["översikt"]=översikt
                 fond_dict["avgifter"]=avgifter
                 fond_dict["innehav"]=df_innehav

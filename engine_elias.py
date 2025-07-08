@@ -12,7 +12,7 @@ import pandas as pd
 
 def portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
     alla_aktier=pd.DataFrame()
-    mappning=mappning.drop_duplicates(subset=["instrument_namn","instrument_isin"],keep="last")
+    mappning=mappning.drop_duplicates(subset=["instrument_isin"],keep="last")
     nivåer=100
     for i in range (nivåer):
         fonder=holdings[i]
@@ -32,11 +32,20 @@ def portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
             innehav["nivå"]=i+1
             innehav["andel_av_fond"]*=holdings[i][fond]
             innehav_per_nivå=pd.concat([innehav_per_nivå,innehav],axis=0).reset_index(drop=True)
-        aktier=innehav_per_nivå.loc[~innehav_per_nivå["instrument_isin"].isin(alla_fonder.keys())]
+        #HÄR ÄR DET FEL
+        innehav_per_nivå=pd.merge(left=innehav_per_nivå,right=mappning[["instrument_isin","top_key"]],on="instrument_isin")
+        aktier=innehav_per_nivå.loc[innehav_per_nivå["top_key"].isna()]
+        nästa_nivå=innehav_per_nivå.loc[innehav_per_nivå["top_key"].notna()]
+        # aktier=innehav_per_nivå.loc[((~innehav_per_nivå["instrument_isin"].isin(mappning["instrument_isin"].unique())) & (mappning["top_key"].isna()))]
+        # aktier=innehav_per_nivå.loc[~innehav_per_nivå["instrument_isin"].isin(mappning[mappning["instrument_isin"] == fond]["top_key"].unique())]
+        print(aktier)
         alla_aktier=pd.concat([alla_aktier,aktier],axis=0).reset_index(drop=True)
-        nivå2=innehav_per_nivå.loc[innehav_per_nivå["instrument_isin"].isin(alla_fonder.keys())][["instrument_isin","andel_av_fond"]]
-        nivå2=nivå2.set_index('instrument_isin')['andel_av_fond'].to_dict()
-        holdings[i+1]=nivå2
-        if not nivå2: 
+
+        # nästa_nivå=innehav_per_nivå.loc[((innehav_per_nivå["instrument_isin"].isin(mappning["instrument_isin"].unique())) & (mappning[mappning["instrument_isin"]==innehav_per_nivå["instrument_isin"]]["top_key"].notna()))]
+        # [["top_key","andel_av_fond"]]
+        nästa_nivå=nästa_nivå.set_index('instrument_isin')['andel_av_fond'].to_dict()
+        holdings[i+1]=nästa_nivå
+        # print(holdings)
+        if not nästa_nivå: 
             break
     return alla_aktier
