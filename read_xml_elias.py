@@ -122,6 +122,8 @@ def main():
     tid=0
     alla_fonder={}
     mappning=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
+    alla_innehav=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
+
     for dirpath, dirnames, filenames in os.walk(root_folder_path):
         for filename in filenames:
             fond_dict={}
@@ -139,15 +141,18 @@ def main():
                 avgifter=get_fast_avgift(root)    
                 df_innehav=get_all_instruments(root) 
                 if len(list(df_innehav.columns)) == 0:
-                    df_innehav["instrument_namn"] = []
-                    df_innehav["instrument_isin"] = []
-                df_innehav["top_key"] = översikt["fond_isin"]
+                    print(f"Skipping {översikt['fond_namn']}: Fund has no holdings.")
+                    continue
+                df_innehav["top_key"] = df_innehav["instrument_isin"].copy()
+                alla_innehav=pd.concat([alla_innehav,df_innehav[["instrument_namn","instrument_isin", "top_key"]]],axis=0)
                 fond_dict["översikt"]=översikt
                 fond_dict["avgifter"]=avgifter
                 fond_dict["innehav"]=df_innehav
                 mappning=pd.concat([mappning,pd.DataFrame({"instrument_namn":[översikt["fond_namn"]],"instrument_isin":[översikt["fond_isin"]], "top_key":[översikt["fond_isin"]]})]).reset_index(drop=True)
-                mappning=pd.concat([mappning,df_innehav[["instrument_namn","instrument_isin"]]])
                 alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
+    alla_innehav=alla_innehav.loc[~alla_innehav["instrument_isin"].isin(list(alla_fonder.keys()))]
+    alla_innehav.drop_duplicates(subset="instrument_isin",inplace=True)
+    mappning=pd.concat([mappning,alla_innehav],axis=0).reset_index(drop=True)
     return alla_fonder, mappning.drop_duplicates()
     
 

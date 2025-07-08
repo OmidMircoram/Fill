@@ -33,7 +33,8 @@ def scrape(alla_fonder):
     alla_fonder1 = {}
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=chrome_options)
+    # driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
     url="https://markets.ft.com/data/"
     driver.get(url)
     driver.maximize_window()
@@ -44,8 +45,7 @@ def scrape(alla_fonder):
         fondnamn_fixad=fondnamn.replace(" ","+")
         # print(fondnamn_fixad)
         url="https://markets.ft.com/data/search?query="+fondnamn_fixad
-        driver.get(url)
-        
+        driver.get(url)        
         # time.sleep(1)
         try: 
             tabell = driver.find_element(By.CLASS_NAME, "mod-ui-table--freeze-pane")
@@ -56,6 +56,9 @@ def scrape(alla_fonder):
                 for i in range(0, len(rader), 2):
                     andelsklass = rader[i].text
                     isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None
+                    print(isin)
+                    if isin==key: 
+                        continue
                     alla_fonder1[fondnamn][andelsklass]=isin
                     new_struct=pd.concat([new_struct,pd.DataFrame({"instrument_namn": [andelsklass], "instrument_isin": [isin], "top_key": [key]})],axis=0)    
                 # time.sleep(0)

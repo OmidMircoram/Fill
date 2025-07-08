@@ -42,21 +42,25 @@ alla_fonder, mappning = main()
 #%%
 alla_fonder=load_existing_data("alla_fonder")
 mappning=load_existing_data("mappning")
+# andel_new=load_existing_data("andel_new")
+# andel_old = load_existing_data("andel_old")
+# mappning_after_scrape = load_existing_data("mappning_after_scrape")
 #%%
 from scrape import scrape
 
 andel_old, andel_new = scrape(alla_fonder)
-mappning = pd.concat([mappning, andel_new], axis=0)
+#%%
+mappning_after_scrape = pd.concat([mappning, andel_new], axis=0)
 
 #%%
 save_to_pickle(alla_fonder, "alla_fonder")
 save_to_pickle(mappning, "mappning")
+save_to_pickle(mappning_after_scrape, "mappning_after_scrape")
 save_to_pickle(andel_new,"andel_new")
 save_to_pickle(andel_old,"andel_old")
 #%%
 from engine_elias import portfolio
 
-holdings={0:{'Handelsbanken Aktiv 100':1000,},
-            }
-current_portfolio = portfolio(holdings, alla_fonder, mappning)
+holdings={0:{'Handelsbanken Aktiv 100':1000,},}
+current_portfolio = portfolio(holdings, alla_fonder, mappning_after_scrape)
 # %%

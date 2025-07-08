@@ -10,11 +10,11 @@ import pandas as pd
 # },        
 # }
 
-def portfolio(holdings, alla_fonder, mappning):
+def portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
     alla_aktier=pd.DataFrame()
-    mappning=mappning.drop_duplicates(subset="instrument_isin")
+    mappning=mappning.drop_duplicates(subset=["instrument_namn","instrument_isin"],keep="last")
     nivåer=100
-    for i in range (nivåer):    
+    for i in range (nivåer):
         fonder=holdings[i]
         innehav_per_nivå=pd.DataFrame()
         for fond in fonder:
@@ -27,10 +27,8 @@ def portfolio(holdings, alla_fonder, mappning):
                     alla_aktier=pd.concat([alla_aktier, pd.DataFrame({})])
                     continue
             else:
-                isin=mappning[mappning["instrument_isin"] == fond]["top_key"]
-                print(fond)
-            # print(alla_fonder[isin]["innehav"], isin)
-            innehav=alla_fonder[isin]["innehav"].copy()
+                isin=mappning[mappning["instrument_isin"] == fond]["top_key"].values[0]
+            innehav=alla_fonder[isin]["innehav"]
             innehav["nivå"]=i+1
             innehav["andel_av_fond"]*=holdings[i][fond]
             innehav_per_nivå=pd.concat([innehav_per_nivå,innehav],axis=0).reset_index(drop=True)
