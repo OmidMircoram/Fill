@@ -30,6 +30,12 @@ for stock in selected_stocks:
 if portfolio_dict[0]:
     result_df = calculate_portfolio(portfolio_dict,alla_fonder, mappning).reset_index()
     st.subheader("📊 Portfolio Breakdown") 
+    result_df = result_df.groupby(by="instrument_isin").agg({"andel_av_fond": "sum",
+                                                             "instrument_isin": "count",
+                                                             "instrument_namn": "first",
+                                                             "landkod_emittent": "first",
+                                                             "bransch": "first",
+                                                             })
     st.dataframe(result_df)
     st.subheader(f"📦 Number of holdings in portfolio: {len(result_df)}")
     st.write("-"*4)

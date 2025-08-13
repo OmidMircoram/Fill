@@ -1,6 +1,6 @@
 #%% 
 import pandas as pd
-
+import numpy as np
 
 def find_first_isin(holdings,mappning):
     for fond in list(holdings[0]): 
@@ -25,19 +25,28 @@ def calculate_portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
        'andel_av_fond':[""], 'marknadsvarde_instrument':[""], 'bransch':[""], 'nivå':[""]})
         for fond in fonder:
             if i==0:
-                isin=mappning.loc[mappning["instrument_namn"]==fond]["top_key"]
+                isin=mappning.loc[mappning["instrument_namn"] == fond]["top_key"]
             else:
                 isin=mappning[mappning["instrument_isin"] == fond]["top_key"]
-            
-            if not isin.empty:  
-                isin=isin.values[0]
-            else:
+            print(isin.shape)
+            print(isin.empty)
+            # if pd.isna(isin.iloc[0]):
+                # isin=mappning.loc[mappning["instrument_namn"]==fond]["instrument_isin"]
+  
+            if isin.empty or pd.isna(isin.iloc[0]) :
+                if isin.empty:
+                    isin=fond
+                elif pd.isna(isin.iloc[0]): 
+                    isin=mappning.loc[mappning["instrument_namn"]==fond]["instrument_isin"]
+                    isin=isin.values[0]
                 print("hej") 
-                temp_df=pd.DataFrame({"instument_isin":[fond],"instrument_namn":[fond],"landkod_emittent":"-","andel_av_fond":holdings[i][fond],"markandsvarde_instrument":holdings[i][fond],"bransch":"-","nivå":0})
+                temp_df=pd.DataFrame({"instrument_isin":[isin],"instrument_namn":[fond],"landkod_emittent":np.nan,"andel_av_fond":holdings[i][fond],"markandsvarde_instrument":holdings[i][fond],"bransch":np.nan,"nivå":0})
                 portfolio=pd.concat([portfolio, temp_df],axis=0)
                 if len(holdings[0])==1:
                     return portfolio
                 continue
+            else:
+                isin=isin.values[0] 
                 # else: 
                 #     temp_df=pd.DataFrame({"instument_isin":[fond],"instrument_namn":[fond],"landkod_emittent":"-","andel_av_fond":holdings[i][fond],"markandsvarde_instrument":holdings[i][fond],"bransch":"-","nivå":0})
                 #     portfolio=pd.concat([portfolio, temp_df],axis=0)
@@ -58,5 +67,7 @@ def calculate_portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
         holdings[i+1]=nästa_nivå
         if not nästa_nivå: 
             break
+    portfolio=portfolio.loc[portfolio["instrument_namn"]!=""]
+    portfolio=portfolio.loc[portfolio["andel_av_fond"]!=""]
     return portfolio
     # return portfolio.groupby(["instrument_isin","instrument_namn","landkod_emittent","bransch"])["andel_av_fond"].sum()
