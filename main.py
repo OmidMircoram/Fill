@@ -58,11 +58,11 @@ def load_data():
 #%%
 # from engine_elias import calculate_portfolio
 alla_fonder,mappning_after_scrape=load_data()
-holdings={0:{"Handelsbanken Aktiv 100":100,"axfood":2}}
+holdings={0:{"Handelsbanken Aktiv 100":100}}
 
 
 current_portfolio = (calculate_portfolio(holdings, alla_fonder.copy(), mappning_after_scrape)).reset_index()
-
+current_portfolio=current_portfolio.loc[current_portfolio["instrument_isin"]!=""]
 current_portfolio=current_portfolio.sort_values(by="andel_av_fond",ascending=False)
 current_portfolio
 

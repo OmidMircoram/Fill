@@ -12,7 +12,7 @@ def find_first_isin(holdings,mappning):
         else:
             continue
         print(holdings)
-    return holdings
+        return holdings
 
 def calculate_portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
     portfolio=pd.DataFrame()
