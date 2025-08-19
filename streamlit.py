@@ -17,7 +17,7 @@ st.subheader("Select Stocks and Investment Amounts")
 
 # Step 1: Multi-select stock names
 stock_options = mappning['instrument_namn'].unique()
-selected_stocks = st.multiselect("Choose Instruments", stock_options)
+selected_stocks = st.multiselect("Choose Instruments", stock_options, accept_new_options = True)
 
 # Step 2: Input invested amount per selected stock
 portfolio_dict = {0: {}}
