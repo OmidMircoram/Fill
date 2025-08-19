@@ -145,7 +145,7 @@ def main():
                     continue
                 # df_innehav["top_key"] = df_innehav["instrument_isin"].copy()
 
-                alla_innehav=pd.concat([alla_innehav,df_innehav[["instrument_namn","instrument_isin"]]],axis=0)
+                alla_innehav=pd.concat([alla_innehav,df_innehav[["instrument_namn","instrument_isin", "landkod_emittent", "bransch"]]],axis=0)
                 fond_dict["översikt"]=översikt
                 fond_dict["avgifter"]=avgifter
                 fond_dict["innehav"]=df_innehav
