@@ -79,7 +79,7 @@ if portfolio_dict[0]:
     )
     st.plotly_chart(fig_top_holdings, use_container_width=True)
 
-
+ 
 
 else:
     st.info("Please select stocks and enter invested amounts to see your portfolio.")
