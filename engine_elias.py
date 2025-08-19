@@ -11,7 +11,6 @@ def find_first_isin(holdings,mappning):
             holdings[0][isin] = holdings[0].pop(fond)
         else:
             continue
-        print(holdings)
         return holdings
 
 def calculate_portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
@@ -28,8 +27,6 @@ def calculate_portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
                 isin=mappning.loc[mappning["instrument_namn"] == fond]["top_key"]
             else:
                 isin=mappning[mappning["instrument_isin"] == fond]["top_key"]
-            print(isin.shape)
-            print(isin.empty)
             # if pd.isna(isin.iloc[0]):
                 # isin=mappning.loc[mappning["instrument_namn"]==fond]["instrument_isin"]
   
@@ -39,7 +36,6 @@ def calculate_portfolio(holdings, alla_fonder, mappning: pd.DataFrame):
                 elif pd.isna(isin.iloc[0]): 
                     isin=mappning.loc[mappning["instrument_namn"]==fond]["instrument_isin"]
                     isin=isin.values[0]
-                print("hej") 
                 temp_df=pd.DataFrame({"instrument_isin":[isin],"instrument_namn":[fond],"landkod_emittent":np.nan,"andel_av_fond":holdings[i][fond],"markandsvarde_instrument":holdings[i][fond],"bransch":np.nan,"nivå":0})
                 portfolio=pd.concat([portfolio, temp_df],axis=0)
                 if len(holdings[0])==1:
