@@ -54,4 +54,4 @@ def color_returns(val):
 
 styled = overview_data.style.applymap(color_returns, subset=["return_6m (%)", "return_12m (%)", "return_24m (%)"]).format({"return_6m (%)": "{:.1f}", "return_12m (%)": "{:.1f}", "return_24m (%)": "{:.1f}"})
 st.dataframe(styled, width=1000, height=600)
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide") 
