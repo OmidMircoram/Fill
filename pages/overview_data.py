@@ -37,7 +37,6 @@ def create_overview(alla_fonder):
     #     df[col] = df[col].apply(lambda x: f"{x:.1f}%" if x is not None else "")
     return df
 
-from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
 
 st.title("📋 Fund Overview")
 
