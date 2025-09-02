@@ -21,19 +21,20 @@ def check_aktiv(element):
           return False
      else:
           return True
-def find_element(nivå,elements):
-    namespace= {'ns': 'http://schemas.fi.se/publika/vardepappersfonder/20200331'}
-    string="./"
-    for sub_element in elements:
-        string=string + "/ns:"+sub_element  
-    return nivå.find(string,namespace)
 
-def find_all_elements(nivå,elements):
+def find_element(level,elements):
     namespace= {'ns': 'http://schemas.fi.se/publika/vardepappersfonder/20200331'}
     string="./"
     for sub_element in elements:
         string=string + "/ns:"+sub_element  
-    return nivå.findall(string,namespace)
+    return level.find(string,namespace)
+
+def find_all_elements(level,elements):
+    namespace= {'ns': 'http://schemas.fi.se/publika/vardepappersfonder/20200331'}
+    string="./"
+    for sub_element in elements:
+        string=string + "/ns:"+sub_element  
+    return level.findall(string,namespace)
 
 
 def get_fund_overview(root):
