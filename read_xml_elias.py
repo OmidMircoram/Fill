@@ -54,7 +54,7 @@ def get_fund_overview(root):
     jamforelseindex= find_element(root,['Jämförelseindex', "Jämförelseindex"])
     jamforelseindex=check_none(jamforelseindex,"Unknown Index")                                             
 
-    overview={"fond_namn":fond_namn,
+    overview_dict={"fond_namn":fond_namn,
               "fond_isin":fond_isin,
               "likvida_medel":likvida_medel,
               "ovriga_tillgangar":ovriga_tillgangar,
@@ -65,7 +65,7 @@ def get_fund_overview(root):
               }
 
 
-    return overview
+    return overview_dict
 
 def unikt_instrument(instrument):
     instrument_isin = find_element(instrument,['ISIN-kod_instrument'])
@@ -121,69 +121,73 @@ def main():
     root_folder_path = "xml"
     
     tid=0
-    alla_fonder={}
-    mappning=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
-    alla_innehav=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
+    all_funds={}
+    mapping_df=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
+    all_holdings=pd.DataFrame({"instrument_namn":[],"instrument_isin":[], "top_key":[]})
 
     for dirpath, dirnames, filenames in os.walk(root_folder_path):
         for filename in filenames:
-            fond_dict={}
+            fund_dict={}
             if filename.endswith('.xml'):  # Process only XML files
                 file_path = os.path.join(dirpath, filename)
                 tree = ET.parse(file_path)
                 root = tree.getroot()
-                översikt=get_fund_overview(root)
+                overview_dict=get_fund_overview(root)
                 fond_status_element =find_element(root,['Fondinformation','Fond_status'])    
                 aktiv=check_aktiv(fond_status_element)
                 if not aktiv:
-                    print(f"Skipping {översikt['fond_namn']}: Fund is inactive (Ej aktiv fond).")
+                    print(f"Skipping {overview_dict['fond_namn']}: Fund is inactive (Ej aktiv fond).")
                     continue
                 
-                avgifter=get_fast_avgift(root)    
+                fees_dict=get_fast_avgift(root)    
                 df_innehav=get_all_instruments(root) 
                 if len(list(df_innehav.columns)) == 0:
-                    print(f"Skipping {översikt['fond_namn']}: Fund has no holdings.")
+                    print(f"Skipping {overview_dict['fond_namn']}: Fund has no holdings.")
                     continue
                 # df_innehav["top_key"] = df_innehav["instrument_isin"].copy()
 
-                alla_innehav=pd.concat([alla_innehav,df_innehav[["instrument_namn","instrument_isin", "landkod_emittent", "bransch"]]],axis=0)
-                fond_dict["översikt"]=översikt
-                fond_dict["avgifter"]=avgifter
-                fond_dict["innehav"]=df_innehav
-                mappning=pd.concat([mappning,pd.DataFrame({"instrument_namn":[översikt["fond_namn"]],"instrument_isin":[översikt["fond_isin"]], "top_key":[översikt["fond_isin"]]})]).reset_index(drop=True)
-                alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
-    alla_innehav=alla_innehav.loc[~alla_innehav["instrument_isin"].isin(list(alla_fonder.keys()))]
-    alla_innehav.drop_duplicates(subset="instrument_isin",inplace=True)
-    mappning=pd.concat([mappning,alla_innehav],axis=0).reset_index(drop=True)
-    return alla_fonder, mappning.drop_duplicates()
+                all_holdings=pd.concat([all_holdings,df_innehav[["instrument_namn","instrument_isin", "landkod_emittent", "bransch"]]],axis=0)
+                fund_dict["overview_dict"]=overview_dict
+                fund_dict["fees_dict"]=fees_dict
+                fund_dict["funds_holdings"]=df_innehav
+                # add to mappning all funds by setting the instrument_isin/fond_isin to their top_key
+                mapping_df=pd.concat([mapping_df,pd.DataFrame({"instrument_namn":[overview_dict["fond_namn"]],"instrument_isin":[overview_dict["fond_isin"]], "top_key":[overview_dict["fond_isin"]]})]).reset_index(drop=True)
+                # set the key for the fund_dict to the ISIN code for that fund.
+                all_funds[fund_dict["overview"]["fond_isin"]]=fund_dict
+    # keep all instruments that is not actually a fund in all_funds.
+    all_holdings=all_holdings.loc[~all_holdings["instrument_isin"].isin(list(all_funds.keys()))]
+    all_holdings.drop_duplicates(subset="instrument_isin",inplace=True)
+    # Add up all instruments and funds to the mapping df
+    mapping_df=pd.concat([mapping_df,all_holdings],axis=0).reset_index(drop=True)
+    return all_funds, mapping_df.drop_duplicates()
     
 
 def old_main(): 
     root_folder_path = "xml"
     
     tid=0
-    alla_fonder={}
-    mappning=pd.DataFrame({"instrument_namn":[],"instrument_isin":[]})
+    all_funds={}
+    mapping_df=pd.DataFrame({"instrument_namn":[],"instrument_isin":[]})
     for dirpath, dirnames, filenames in os.walk(root_folder_path):
         for filename in filenames:
-            fond_dict={}
+            fund_dict={}
             if filename.endswith('.xml'):  # Process only XML files
                 file_path = os.path.join(dirpath, filename)
                 tree = ET.parse(file_path)
                 root = tree.getroot()
-                översikt=get_fund_overview(root)
+                overview_dict=get_fund_overview(root)
                 fond_status_element =find_element(root,['Fondinformation','Fond_status'])    
                 aktiv=check_aktiv(fond_status_element)
                 if not aktiv:
-                    print(f"Skipping {översikt['fond_namn']}: Fund is inactive (Ej aktiv fond).")
+                    print(f"Skipping {overview_dict['fond_namn']}: Fund is inactive (Ej aktiv fond).")
                     continue
                 
-                avgifter=get_fast_avgift(root)    
+                fees_dict=get_fast_avgift(root)    
                 df_innehav=get_all_instruments(root) 
-                fond_dict["översikt"]=översikt
-                fond_dict["avgifter"]=avgifter
-                fond_dict["innehav"]=df_innehav
-                mappning=pd.concat([mappning,pd.DataFrame({"instrument_namn":[översikt["fond_namn"]],"instrument_isin":[översikt["fond_isin"]]})]).reset_index(drop=True)
-                mappning=pd.concat([mappning,df_innehav[["instrument_namn","instrument_isin"]]])
-                alla_fonder[fond_dict["översikt"]["fond_isin"]]=fond_dict
-    return alla_fonder, mappning.drop_duplicates()
+                fund_dict["overview_dict"]=overview_dict
+                fund_dict["fees_dict"]=fees_dict
+                fund_dict["innehav"]=df_innehav
+                mapping_df=pd.concat([mapping_df,pd.DataFrame({"instrument_namn":[overview_dict["fond_namn"]],"instrument_isin":[overview_dict["fond_isin"]]})]).reset_index(drop=True)
+                mapping_df=pd.concat([mapping_df,df_innehav[["instrument_namn","instrument_isin"]]])
+                all_funds[fund_dict["overview_dict"]["fond_isin"]]=fund_dict
+    return all_funds, mapping_df.drop_duplicates()
