@@ -29,8 +29,8 @@ def accept_cookies(driver):
             driver.switch_to.default_content()
             continue
 #%%
-def scrape(alla_fonder):
-    alla_fonder1 = {}
+def scrape(all_funds):
+    all_funds1 = {}
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     # driver = webdriver.Chrome(options=chrome_options)
@@ -40,8 +40,8 @@ def scrape(alla_fonder):
     driver.maximize_window()
     accept_cookies(driver)
     new_struct = pd.DataFrame()
-    for key in alla_fonder:
-        fondnamn=alla_fonder[key]["översikt"]["fond_namn"]
+    for key in all_funds:
+        fondnamn=all_funds[key]["översikt"]["fond_namn"]
         fondnamn_fixad=fondnamn.replace(" ","+")
         # print(fondnamn_fixad)
         url="https://markets.ft.com/data/search?query="+fondnamn_fixad
@@ -52,21 +52,21 @@ def scrape(alla_fonder):
             rader = tabell.find_elements(By.CLASS_NAME, "mod-ui-table__cell--text")
             
             if len(rader) >0:  
-                alla_fonder1[fondnamn] = {}
-                for i in range(0, len(rader), 2):
+                all_funds1[fondnamn] = {}
+                for i in range(0, len(rader), 2): # Should we really use step=2, will we lose half of andelsklasser?
                     andelsklass = rader[i].text
                     isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None
                     print(isin)
                     if isin==key: 
                         continue
-                    alla_fonder1[fondnamn][andelsklass]=isin
+                    all_funds1[fondnamn][andelsklass]=isin
                     new_struct=pd.concat([new_struct,pd.DataFrame({"instrument_namn": [andelsklass], "instrument_isin": [isin], "top_key": [key]})],axis=0)    
                 # time.sleep(0)
                 # driver.close()
         except: 
             print(fondnamn_fixad, "skippad")
             continue
-    return alla_fonder1, new_struct
+    return all_funds1, new_struct
 #%%
 
 

@@ -4,8 +4,8 @@ import pandas as pd
 import plotly.express as px
 from main import load_data
 from engine_elias import calculate_portfolio
-# Dummy data for mappning (replace with your real one)
-alla_fonder,mappning=load_data()
+# Dummy data for mapping (replace with your real one)
+all_funds, mapping=load_data()
 
 # Dummy calculate_porfolio function (replace with real one)
 
@@ -16,7 +16,7 @@ st.title("📈 Portfolio Builder")
 st.subheader("Select Stocks and Investment Amounts")
 
 # Step 1: Multi-select stock names
-stock_options = mappning['instrument_namn'].unique()
+stock_options = mapping['instrument_namn'].unique()
 selected_stocks = st.multiselect("Choose Instruments", stock_options, accept_new_options = True)
 
 # Step 2: Input invested amount per selected stock
@@ -28,7 +28,7 @@ for stock in selected_stocks:
 
 # Step 3: Run portfolio calculation if we have valid input
 if portfolio_dict[0]:
-    result_df = calculate_portfolio(portfolio_dict,alla_fonder, mappning).reset_index()
+    result_df = calculate_portfolio(portfolio_dict,all_funds, mapping).reset_index()
     st.subheader("📊 Portfolio Breakdown") 
     result_df = result_df.groupby(by="instrument_isin").agg({"andel_av_fond": "sum",
                                                              "instrument_isin": "count",

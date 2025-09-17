@@ -117,7 +117,8 @@ def get_fast_avgift(root):
         avgift_dict={"utan_andelsklass" : avgift}
     return avgift_dict
 
-def main(): 
+def main():
+    """Returns -> tuple[dict, DataFrame]"""
     root_folder_path = "xml"
     
     tid=0
@@ -153,7 +154,7 @@ def main():
                 # add to mappning all funds by setting the instrument_isin/fond_isin to their top_key
                 mapping_df=pd.concat([mapping_df,pd.DataFrame({"instrument_namn":[overview_dict["fond_namn"]],"instrument_isin":[overview_dict["fond_isin"]], "top_key":[overview_dict["fond_isin"]]})]).reset_index(drop=True)
                 # set the key for the fund_dict to the ISIN code for that fund.
-                all_funds[fund_dict["overview"]["fond_isin"]]=fund_dict
+                all_funds[fund_dict["overview_dict"]["fond_isin"]]=fund_dict
     # keep all instruments that is not actually a fund in all_funds.
     all_holdings=all_holdings.loc[~all_holdings["instrument_isin"].isin(list(all_funds.keys()))]
     all_holdings.drop_duplicates(subset="instrument_isin",inplace=True)
