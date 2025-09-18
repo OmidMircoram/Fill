@@ -20,15 +20,15 @@ stock_options = mapping['instrument_namn'].unique()
 selected_stocks = st.multiselect("Choose Instruments", stock_options, accept_new_options = True)
 
 # Step 2: Input invested amount per selected stock
-portfolio_dict = {0: {}}
+input_dict = {0: {}}
 for stock in selected_stocks:
     invested = st.number_input(f"Amount invested in {stock}", min_value=0, value=0, step=100)
     if invested > 0:
-        portfolio_dict[0][stock] = invested
+        input_dict[0][stock] = invested
 
 # Step 3: Run portfolio calculation if we have valid input
-if portfolio_dict[0]:
-    result_df = calculate_portfolio(portfolio_dict,all_funds, mapping).reset_index()
+if input_dict[0]:
+    result_df = calculate_portfolio(input_dict,all_funds, mapping).reset_index()
     st.subheader("📊 Portfolio Breakdown") 
     result_df = result_df.groupby(by="instrument_isin").agg({"andel_av_fond": "sum",
                                                              "instrument_isin": "count",

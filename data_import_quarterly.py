@@ -12,8 +12,8 @@ def load_new_data():
     Will also pickle the necessary files.
     """
     all_funds, mapping = main()
-    andel_old, andel_new = scrape(all_funds)
-    mapping_after_scrape = pd.concat([mapping, andel_new], axis=0)
+    andel_old, scrape_mapping = scrape(all_funds)
+    mapping_after_scrape = pd.concat([mapping, scrape_mapping], axis=0)
     save_to_pickle(all_funds, "all_funds")
     save_to_pickle(mapping_after_scrape, "mapping_after_scrape")
 

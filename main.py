@@ -23,10 +23,10 @@ def load_data():
 
 #%%
 all_funds,mapping_after_scrape=load_data()
-holdings={0:{"Handelsbanken Aktiv 100":100, "qweqwe":100, "Axfood":100}}
+input_dict={0:{"Handelsbanken Aktiv 100":100, "qweqwe":100, "Axfood":100}}
 
 
-current_portfolio = (calculate_portfolio(holdings, all_funds.copy(), mapping_after_scrape)).reset_index()
+current_portfolio = (calculate_portfolio(input_dict, all_funds.copy(), mapping_after_scrape)).reset_index()
 # current_portfolio=current_portfolio.sort_values(by="andel_av_fond",ascending=False)
 current_portfolio
 

@@ -39,7 +39,7 @@ def scrape(all_funds):
     driver.get(url)
     driver.maximize_window()
     accept_cookies(driver)
-    new_struct = pd.DataFrame()
+    scrape_mapping = pd.DataFrame()
     for key in all_funds:
         fondnamn=all_funds[key]["översikt"]["fond_namn"]
         fondnamn_fixad=fondnamn.replace(" ","+")
@@ -52,21 +52,22 @@ def scrape(all_funds):
             rader = tabell.find_elements(By.CLASS_NAME, "mod-ui-table__cell--text")
             
             if len(rader) >0:  
-                all_funds1[fondnamn] = {}
+                all_funds1[fondnamn] = {} # creates new dict with fondnamn as key and empty dict as value.
                 for i in range(0, len(rader), 2): # Should we really use step=2, will we lose half of andelsklasser?
-                    andelsklass = rader[i].text
-                    isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None
+                    andelsklass = rader[i].text # Andelsklass is the name of the fund.
+                    isin = rader[i+1].text.split(":")[0] if i+1 < len(rader) else None # selects each isin code respectively.
                     print(isin)
-                    if isin==key: 
+                    if isin==key: # If true it is a top_key-fund and it is allready in the mapping with instrument_isin=top_key
                         continue
-                    all_funds1[fondnamn][andelsklass]=isin
-                    new_struct=pd.concat([new_struct,pd.DataFrame({"instrument_namn": [andelsklass], "instrument_isin": [isin], "top_key": [key]})],axis=0)    
+                    all_funds1[fondnamn][andelsklass]=isin #??????????????? blir som ett index av fondnamn och fondnamn och isin är värdet i intercept.
+                    # If not a top_key-fund, the add it in the scrape_mapping
+                    scrape_mapping=pd.concat([scrape_mapping,pd.DataFrame({"instrument_namn": [andelsklass], "instrument_isin": [isin], "top_key": [key]})],axis=0)    
                 # time.sleep(0)
                 # driver.close()
         except: 
             print(fondnamn_fixad, "skippad")
             continue
-    return all_funds1, new_struct
+    return all_funds1, scrape_mapping
 #%%
 
 
