@@ -14,6 +14,7 @@ def load_new_data():
     all_funds, mapping = main()
     andel_old, scrape_mapping = scrape(all_funds)
     mapping_after_scrape = pd.concat([mapping, scrape_mapping], axis=0)
+    mapping_after_scrape=mapping_after_scrape.drop_duplicates(subset=["instrument_isin"],keep="last")
     save_to_pickle(all_funds, "all_funds")
     save_to_pickle(mapping_after_scrape, "mapping_after_scrape")
 
