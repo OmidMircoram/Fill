@@ -56,7 +56,7 @@ def calculate_portfolio(input_dict, all_funds, mapping_after_scrape: pd.DataFram
                 #     continue
 
             # print(isin)
-            holdings_per_fund=all_funds[isin]["funds_holdings"].copy() # Using the isin as a key to fetches a copy of the funds holdings, a df.
+            holdings_per_fund=all_funds[isin]["innehav"].copy() # Using the isin as a key to fetches a copy of the funds holdings, a df.
             holdings_per_fund["nivå"]=level+1 # creates a new column in the df named nivå and adds 1 to the level at which the instrument was found in the input.
             holdings_per_fund["andel_av_fond"]*=input_dict[level][holding] # multiplies the andel_av_fond for each instrument by the value that i invested in the fund(holding) on top level.
             holdings_per_level=pd.concat([holdings_per_level, holdings_per_fund],axis=0).reset_index(drop=True) # populate the holdings_per_level df with all instruments from all funds. 
@@ -72,5 +72,13 @@ def calculate_portfolio(input_dict, all_funds, mapping_after_scrape: pd.DataFram
             break
     my_portfolio=my_portfolio.loc[my_portfolio["instrument_namn"]!=""] # Filter my portfolio on rows that doesnt have an instrument_namn
     my_portfolio=my_portfolio.loc[my_portfolio["andel_av_fond"]!=""] # Filter my portfolio on rows that doesnt have an andel_av_fond
+    my_portfolio = my_portfolio.groupby(by="instrument_isin").agg({"andel_av_fond": "sum",
+                                                            # "instrument_isin": "count",
+                                                            "instrument_namn": "first",
+                                                            "landkod_emittent": "first",
+                                                            "bransch": "first",
+                                                            })
     return my_portfolio
     # return portfolio.groupby(["instrument_isin","instrument_namn","landkod_emittent","bransch"])["andel_av_fond"].sum()
+
+# %%

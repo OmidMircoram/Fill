@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from main import load_data
-from engine_elias import calculate_portfolio
+from engine import calculate_portfolio
 # Dummy data for mapping (replace with your real one)
 all_funds, mapping=load_data()
 
@@ -13,18 +13,18 @@ all_funds, mapping=load_data()
 # --- UI Starts ---
 st.title("📈 Portfolio Builder")
 
-st.subheader("Select Stocks and Investment Amounts")
+st.subheader("Select holdings and Investment Amounts")
 
-# Step 1: Multi-select stock names
-stock_options = mapping['instrument_namn'].unique()
-selected_stocks = st.multiselect("Choose Instruments", stock_options, accept_new_options = True)
+# Step 1: Multi-select holding names
+holding_options = mapping['instrument_namn'].unique()
+selected_holdings = st.multiselect("Choose Instruments", holding_options, accept_new_options = True)
 
 # Step 2: Input invested amount per selected stock
 input_dict = {0: {}}
-for stock in selected_stocks:
-    invested = st.number_input(f"Amount invested in {stock}", min_value=0, value=0, step=100)
+for holding in selected_holdings:
+    invested = st.number_input(f"Amount invested in {holding}", min_value=0, value=0, step=100)
     if invested > 0:
-        input_dict[0][stock] = invested
+        input_dict[0][holding] = invested
 
 # Step 3: Run portfolio calculation if we have valid input
 if input_dict[0]:
@@ -82,4 +82,4 @@ if input_dict[0]:
  
 
 else:
-    st.info("Please select stocks and enter invested amounts to see your portfolio.")
+    st.info("Please select holdings and enter invested amounts to see your portfolio.")
