@@ -1,85 +1,32 @@
 #%%
 import streamlit as st
-import pandas as pd
-import plotly.express as px
-from main import load_data
-from engine import calculate_portfolio
-# Dummy data for mapping (replace with your real one)
-all_funds, mapping=load_data()
 
-# Dummy calculate_porfolio function (replace with real one)
+from views.my_portfolio import my_portfolio_page
+from views.overview_data import overview_data_page
+# from views.chat_bot import portfolio_breakdown
+# from views.portfolio_breakdown import portfolio_breakdown
 
+def main_script():
+    st.set_page_config(layout="wide")
+    st.title(":material/finance_mode: Portfolio Screener", anchor=False)
+    pages = st.navigation(pages=[run_my_portfolio_page(), run_overview_data_page()])
+    pages.run()
 
-# --- UI Starts ---
-st.title("📈 Portfolio Builder")
+def run_my_portfolio_page():
+    """Run the my_portfolio_page"""
+    return st.Page(my_portfolio_page,
+                   title= "My portfolio",
+                   icon= ":material/tenancy:",
+                   default = True
+                   )
 
-st.subheader("Select holdings and Investment Amounts")
+def run_overview_data_page():
+    """Run the my_portfolio_page"""
+    return st.Page(overview_data_page,
+                   title= "Data overview",
+                   icon= ":material/data_exploration:",
+                   default = False
+                   )
 
-# Step 1: Multi-select holding names
-holding_options = mapping['instrument_namn'].unique()
-selected_holdings = st.multiselect("Choose Instruments", holding_options, accept_new_options = True)
-
-# Step 2: Input invested amount per selected stock
-input_dict = {0: {}}
-for holding in selected_holdings:
-    invested = st.number_input(f"Amount invested in {holding}", min_value=0, value=0, step=100)
-    if invested > 0:
-        input_dict[0][holding] = invested
-
-# Step 3: Run portfolio calculation if we have valid input
-if input_dict[0]:
-    result_df = calculate_portfolio(input_dict,all_funds, mapping).reset_index()
-    st.subheader("📊 Portfolio Breakdown") 
-    result_df = result_df.groupby(by="instrument_isin").agg({"andel_av_fond": "sum",
-                                                             "instrument_isin": "count",
-                                                             "instrument_namn": "first",
-                                                             "landkod_emittent": "first",
-                                                             "bransch": "first",
-                                                             })
-    st.dataframe(result_df)
-    st.subheader(f"📦 Number of holdings in portfolio: {len(result_df)}")
-    st.write("-"*4)
-    # Optional plots
-    st.subheader(f"📦 Portfolio per country:")
-    fig_country = px.pie(result_df, values='andel_av_fond', names='landkod_emittent', title='By Country',)
-    st.plotly_chart(fig_country, use_container_width=True)
-    st.write("-"*4)
-    st.subheader("Portfolio per industry:")
-    fig_industry = px.bar(result_df.groupby('bransch')['andel_av_fond'].sum().reset_index(),
-                          x='bransch', y='andel_av_fond', title='By Industry', color='bransch')
-    
-    st.plotly_chart(fig_industry, use_container_width=True)
-    st.subheader("Top 10 Holdings (Pie Chart)")
-
-# Sort by "andel_av_fond"
-    sorted_df = result_df.sort_values("andel_av_fond", ascending=False)
-
-    # Top 10 and Others
-    top_10 = sorted_df.head(10)
-    others = sorted_df.iloc[10:]
-
-    # Add "Other" if needed
-    if not others.empty:
-        other_row = pd.DataFrame([{
-            'instrument_namn': 'Other',
-            'andel_av_fond': others['andel_av_fond'].sum(),
-            'Landkod': 'Mixed',
-            'bransch': 'Mixed'
-        }])
-        pie_data = pd.concat([top_10, other_row], ignore_index=True)
-    else:
-        pie_data = top_10
-
-    # Plot it
-    fig_top_holdings = px.pie(
-        pie_data,
-        values='andel_av_fond',
-        names='instrument_namn',
-        title='Top 10 Holdings + Other'
-    )
-    st.plotly_chart(fig_top_holdings, use_container_width=True)
-
- 
-
-else:
-    st.info("Please select holdings and enter invested amounts to see your portfolio.")
+if __name__ == "__main__":
+    main_script()

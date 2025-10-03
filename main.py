@@ -38,20 +38,20 @@ def calc_fund_holdings_looped(all_funds, mapping_after_scrape)-> dict:
         all_funds[fund_isin]['funds_holdings_looped'] = fund_holdings_looped
     return all_funds
 
-all_funds = calc_fund_holdings_looped(all_funds, mapping_after_scrape)
-#%%
-input_dict={0:{"Länsförsäkringar Global Index":100, "Handelsbanken Aktiv 100": 200, "Axfood":50}}
-# "Handelsbanken Aktiv 100":1000000, , "Axfood":50000
+# all_funds = calc_fund_holdings_looped(all_funds, mapping_after_scrape)
+# #%%
+# input_dict={0:{"Länsförsäkringar Global Index":100, "Handelsbanken Aktiv 100": 200, "Axfood":50}}
+# # "Handelsbanken Aktiv 100":1000000, , "Axfood":50000
 
-my_portfolio = (calculate_portfolio(input_dict, all_funds.copy(), mapping_after_scrape)).reset_index()
-# current_portfolio=current_portfolio.sort_values(by="andel_av_fond",ascending=False)
-my_portfolio
+# my_portfolio = (calculate_portfolio(input_dict, all_funds.copy(), mapping_after_scrape)).reset_index()
+# # current_portfolio=current_portfolio.sort_values(by="andel_av_fond",ascending=False)
+# my_portfolio
 
 
 # %%
 ##################### OVERLAPPING #####################
-my_portfolio.sort_values(by="andel_av_fond")
-my_portfolio["portfolio_weight"] = my_portfolio['andel_av_fond'] / my_portfolio['andel_av_fond'].sum()
+# my_portfolio.sort_values(by="andel_av_fond")
+# my_portfolio["portfolio_weight"] = my_portfolio['andel_av_fond'] / my_portfolio['andel_av_fond'].sum()
 
 def compute_overlap(my_portfolio, fund_w):
     """
@@ -77,7 +77,7 @@ def compute_overlap(my_portfolio, fund_w):
 
 # %%
 
-def rank_fund_overlaps(my_portfolio, all_funds, top_n=3):
+def rank_fund_overlaps(my_portfolio, all_funds, top_n=10):
     """
     my_portfolio: DataFrame med kolumner [isin, name, amount]
     all_funds: {fund_isin: {översikt:{}}, {avgifter:{}}, {innehav: Dataframe}, {funds_holdings_looped: Dataframe}}
@@ -101,5 +101,5 @@ def rank_fund_overlaps(my_portfolio, all_funds, top_n=3):
     top = results_df.head(top_n).copy()
 
     return top, results_df, details_map
-top, results_df, details_map = rank_fund_overlaps(my_portfolio, all_funds)
+# top, results_df, details_map = rank_fund_overlaps(my_portfolio, all_funds)
 # %%
