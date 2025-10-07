@@ -41,7 +41,7 @@ def scrape(all_funds):
     accept_cookies(driver)
     scrape_mapping = pd.DataFrame()
     for key in all_funds:
-        fondnamn=all_funds[key]["översikt"]["fond_namn"]
+        fondnamn=all_funds[key]["overview_dict"]["fond_namn"]
         fondnamn_fixad=fondnamn.replace(" ","+")
         # print(fondnamn_fixad)
         url="https://markets.ft.com/data/search?query="+fondnamn_fixad

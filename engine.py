@@ -22,7 +22,7 @@ def calculate_portfolio(input_dict, all_funds, mapping_after_scrape: pd.DataFram
     max_loops=100
 
     for level in range(max_loops):
-        input=input_dict[level]
+        input=input_dict[level].copy()
         holdings_per_level=pd.DataFrame({'instrument_isin':[""], 'instrument_namn':[""], 'landkod_emittent':[""],
        'andel_av_fond':[""], 'marknadsvarde_instrument':[""], 'bransch':[""], 'nivå':[""]})
         for holding in input:
@@ -56,7 +56,7 @@ def calculate_portfolio(input_dict, all_funds, mapping_after_scrape: pd.DataFram
                 #     continue
 
             # print(isin)
-            holdings_per_fund=all_funds[isin]["innehav"].copy() # Using the isin as a key to fetches a copy of the funds holdings, a df.
+            holdings_per_fund=all_funds[isin]["funds_holdings"].copy() # Using the isin as a key to fetches a copy of the funds holdings, a df.
             holdings_per_fund["nivå"]=level+1 # creates a new column in the df named nivå and adds 1 to the level at which the instrument was found in the input.
             holdings_per_fund["andel_av_fond"]*=input_dict[level][holding] # multiplies the andel_av_fond for each instrument by the value that i invested in the fund(holding) on top level.
             holdings_per_level=pd.concat([holdings_per_level, holdings_per_fund],axis=0).reset_index(drop=True) # populate the holdings_per_level df with all instruments from all funds. 
@@ -66,6 +66,7 @@ def calculate_portfolio(input_dict, all_funds, mapping_after_scrape: pd.DataFram
         
         my_portfolio=pd.concat([my_portfolio,all_my_holdings],axis=0).reset_index(drop=True) # Populate my_portfolio wit the holdings so far.
         next_level=holdings_per_level.loc[holdings_per_level["top_key"].notna()] # prepare the next level for the next loop by finding all funds on this level, meaning where there is a top_key.
+        print(next_level)
         next_level=next_level.set_index('instrument_isin')['andel_av_fond'].to_dict() # Preparing the next level in the input_dict creating a dictionary that has the instrument_isin's as keys (holding in the loop) and the andel_av_fond which is now the actuall value in kronor, as the value.
         input_dict[level+1]=next_level # add the row for the next level of holdings to the input_dict.
         if not next_level: # If no next level then break.

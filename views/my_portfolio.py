@@ -5,6 +5,7 @@ from views.portfolio_breakdown import portfolio_breakdown
 from views.chat_bot import bot
 from views.overlap import laps
 
+@st.cache_data
 def calc_fund_holdings_looped(all_funds, mapping_after_scrape)-> dict:
     """
     Function that will add a df for the looped holdings for each fund.
@@ -20,7 +21,7 @@ def calc_fund_holdings_looped(all_funds, mapping_after_scrape)-> dict:
 
 def my_portfolio_page():
     all_funds, mapping=load_data()
-    all_funds = calc_fund_holdings_looped(all_funds, mapping) #DELETE THIS LINE FROM HERE WHEN DATA IMPORT SCRIPT IS RAN
+    # all_funds = calc_fund_holdings_looped(all_funds, mapping) #DELETE THIS LINE FROM HERE WHEN DATA IMPORT SCRIPT IS RAN
     st.session_state["all_funds"] = all_funds
     st.session_state["mapping"] = mapping
     st.subheader("Select holdings and Investment Amounts", anchor = False)

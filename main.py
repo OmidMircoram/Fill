@@ -21,7 +21,6 @@ def load_data():
 
 
 
-#%%
 all_funds,mapping_after_scrape=load_data()
 #%%
 # REMOVE THIS CELL WHEN THIS IS DONE QUARTERLY
