@@ -61,7 +61,7 @@ def my_portfolio_page():
                                 "Fund overlap",])
 
         with chat_bot_tab:
-            bot()
+            bot(my_portfolio_df)
 
         with portfolio_breakdown_tab:
             portfolio_breakdown(my_portfolio_df)

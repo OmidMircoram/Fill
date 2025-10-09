@@ -30,7 +30,7 @@ def calc_fund_holdings_looped(all_funds, mapping_after_scrape)-> dict:
     This makes comparing funds that has overlapping holdings possible.
     """
     for fund_isin in all_funds:
-        fund_name = all_funds[fund_isin]['översikt']['fond_namn'] # Fetch fund name
+        fund_name = all_funds[fund_isin]['overview_dict']['fond_namn'] # Fetch fund name
         input_dict={0:{fund_name:1}} # Prepare the input dict and set value=1 in order to keep the result as share of the fund holding in %
         # input the fund name to retur
         fund_holdings_looped = calculate_portfolio(input_dict, all_funds, mapping_after_scrape)
@@ -79,7 +79,7 @@ def compute_overlap(my_portfolio, fund_w):
 def rank_fund_overlaps(my_portfolio, all_funds, top_n=10):
     """
     my_portfolio: DataFrame med kolumner [isin, name, amount]
-    all_funds: {fund_isin: {översikt:{}}, {avgifter:{}}, {innehav: Dataframe}, {funds_holdings_looped: Dataframe}}
+    all_funds: {fund_isin: {overview_dict:{}}, {avgifter:{}}, {innehav: Dataframe}, {funds_holdings_looped: Dataframe}}
     """
     results = []
     details_map = {}
@@ -88,13 +88,13 @@ def rank_fund_overlaps(my_portfolio, all_funds, top_n=10):
         fund_w = all_funds[fund_isin]['funds_holdings_looped']
         overlap, port_cov, fund_cov, details = compute_overlap(my_portfolio, fund_w)
         results.append({
-            "fund": all_funds[fund_isin]['översikt']['fond_namn'],
+            "fund": all_funds[fund_isin]['overview_dict']['fond_namn'],
             "fund_isin": fund_isin,
             "overlap_score": overlap,          # 0..1, högre = mer lika viktmässigt
             "portfolio_coverage": port_cov,    # hur mycket av portföljen som finns i fonden
             "fund_coverage": fund_cov,         # hur mycket av fonden som finns i portföljen
         })
-        details_map[all_funds[fund_isin]['översikt']['fond_namn']] = details
+        details_map[all_funds[fund_isin]['overview_dict']['fond_namn']] = details
 
     results_df = pd.DataFrame(results).sort_values("overlap_score", ascending=False).reset_index(drop=True)
     top = results_df.head(top_n).copy()

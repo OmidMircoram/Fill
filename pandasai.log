@@ -1,0 +1,2941 @@
+2025-10-09 17:36:25 [INFO] Question: How much is my portfolio worth
+2025-10-09 17:36:26 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 17:36:26 [INFO] Prompt ID: 9e070993-5cba-4c61-b92d-4bebaf610206
+2025-10-09 17:36:26 [INFO] Generating new code...
+2025-10-09 17:36:26 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_da4f7016e12c82088343431f4e98300f" columns="[{"name": "Holdings", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Amount", "type": "integer", "description": null, "expression": null, "alias": null}]" dimensions="1x2">
+Holdings,Amount
+Nvidia,600000
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How much is my portfolio worth
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 17:36:41 [INFO] Code Generated:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Define and execute the SQL query to compute the portfolio value
+sql_query = """
+SELECT SUM(Amount) AS total_value
+FROM table_da4f7016e12c82088343431f4e98300f
+"""
+
+df = execute_sql_query(sql_query)
+
+# Extract the total value from the query result
+total_value = 0
+if isinstance(df, pd.DataFrame) and not df.empty:
+    if 'total_value' in df.columns:
+        total_value = df['total_value'].iloc[0]
+    else:
+        total_value = df.iloc[0, 0]
+
+# Normalize to an integer if possible
+try:
+    total_value = int(total_value)
+except Exception:
+    pass
+
+# Declare result var:
+result = {"type": "number", "value": total_value}
+2025-10-09 17:36:41 [INFO] Validating code requirements...
+2025-10-09 17:36:41 [INFO] Code validation successful.
+2025-10-09 17:36:41 [INFO] Cleaning the generated code...
+2025-10-09 17:36:41 [INFO] Executing code: import pandas as pd
+sql_query = """
+SELECT SUM(Amount) AS total_value
+FROM table_da4f7016e12c82088343431f4e98300f
+"""
+df = execute_sql_query(sql_query)
+total_value = 0
+if isinstance(df, pd.DataFrame) and not df.empty:
+    if 'total_value' in df.columns:
+        total_value = df['total_value'].iloc[0]
+    else:
+        total_value = df.iloc[0, 0]
+try:
+    total_value = int(total_value)
+except Exception:
+    pass
+result = {'type': 'number', 'value': total_value}
+2025-10-09 17:36:43 [INFO] Response generated successfully.
+2025-10-09 17:49:18 [INFO] Question: Hur ser min portfölj ut?
+2025-10-09 17:49:18 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 17:49:18 [INFO] Prompt ID: 8608b4cd-e5a5-4908-850a-5c7b8130a911
+2025-10-09 17:49:18 [INFO] Generating new code...
+2025-10-09 17:49:18 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4588x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.30160000000000003,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.4214552834978926e-06
+AEE000301011,0.6032000000000001,EMAAR,AE,Real Estate,6.842910566995785e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.1112,International Holdings Ord Shs,AE,Industrials,2.3950186984485247e-05
+AEN000101016,0.30160000000000003,First Abu Dhabi Bank,AE,Financials,3.4214552834978926e-06
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Hur ser min portfölj ut?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 17:49:37 [INFO] Code Generated:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+# Query to fetch the holdings with the minimum portfolio_weight (the "min portfölj")
+sql_query = """
+WITH t AS (
+  SELECT
+    instrument_isin,
+    CAST(andel_av_fond AS DOUBLE) AS andel_av_fond,
+    instrument_namn,
+    landkod_emittent,
+    bransch,
+    CAST(portfolio_weight AS DOUBLE) AS portfolio_weight
+  FROM table_bc816889ef5456da39f9f9e2ad533fbd
+)
+SELECT instrument_isin, andel_av_fond, instrument_namn, landkod_emittent, bransch, portfolio_weight
+FROM t
+WHERE portfolio_weight = (SELECT MIN(portfolio_weight) FROM t)
+ORDER BY instrument_isin;
+"""
+
+# Execute the SQL query against the provided table
+df_min_portfolio = execute_sql_query(sql_query)
+
+# Declare result var: 
+result = {"type": "dataframe", "value": df_min_portfolio}
+2025-10-09 17:49:37 [INFO] Validating code requirements...
+2025-10-09 17:49:37 [INFO] Code validation successful.
+2025-10-09 17:49:37 [INFO] Cleaning the generated code...
+2025-10-09 17:49:37 [INFO] Executing code: import pandas as pd
+sql_query = """
+WITH t AS (
+  SELECT
+    instrument_isin,
+    CAST(andel_av_fond AS DOUBLE) AS andel_av_fond,
+    instrument_namn,
+    landkod_emittent,
+    bransch,
+    CAST(portfolio_weight AS DOUBLE) AS portfolio_weight
+  FROM table_bc816889ef5456da39f9f9e2ad533fbd
+)
+SELECT instrument_isin, andel_av_fond, instrument_namn, landkod_emittent, bransch, portfolio_weight
+FROM t
+WHERE portfolio_weight = (SELECT MIN(portfolio_weight) FROM t)
+ORDER BY instrument_isin;
+"""
+df_min_portfolio = execute_sql_query(sql_query)
+result = {'type': 'dataframe', 'value': df_min_portfolio}
+2025-10-09 17:49:38 [INFO] Response generated successfully.
+2025-10-09 17:51:27 [INFO] Question: berätta om min portfölj
+2025-10-09 17:51:27 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 17:51:27 [INFO] Prompt ID: 43a430e7-ae6f-49d0-a09c-493a9fc55eea
+2025-10-09 17:51:27 [INFO] Generating new code...
+2025-10-09 17:51:27 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ berätta om min portfölj
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 17:52:03 [INFO] Code Generated:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Table name (DuckDB)
+TABLE_NAME = "table_bc816889ef5456da39f9f9e2ad533fbd"
+
+# Query: total number of holdings
+df_count = execute_sql_query(f"SELECT COUNT(*) AS holding_count FROM {TABLE_NAME}")
+holding_count = int(df_count.iloc[0]['holding_count']) if not df_count.empty else 0
+
+# Query: total portfolio weight (cast to double for accuracy)
+df_total = execute_sql_query(f"SELECT SUM(CAST(portfolio_weight AS DOUBLE)) AS total_weight FROM {TABLE_NAME}")
+total_weight = float(df_total.iloc[0]['total_weight']) if not df_total.empty else 0.0
+
+# Query: top 5 holdings by portfolio_weight
+df_top = execute_sql_query(f"""
+SELECT instrument_namn, instrument_isin, landkod_emittent, bransch,
+       CAST(portfolio_weight AS DOUBLE) AS weight
+FROM {TABLE_NAME}
+ORDER BY weight DESC
+LIMIT 5
+""")
+
+# Query: distribution by country (landkod_emittent)
+df_country = execute_sql_query(f"""
+SELECT landkod_emittent, SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {TABLE_NAME}
+GROUP BY landkod_emittent
+ORDER BY weight DESC
+""")
+
+# Query: distribution by industry (bransch)
+df_industry = execute_sql_query(f"""
+SELECT bransch, SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {TABLE_NAME}
+GROUP BY bransch
+ORDER BY weight DESC
+""")
+
+# Build a narrative summary
+lines = []
+lines.append(f"Portföljen består av {holding_count} positioner.")
+lines.append(f"Total vikt (sum av portföljvikter): {total_weight:.6f}.")
+
+if not df_top.empty:
+    lines.append("Topp 5 positioner:")
+    for _, row in df_top.iterrows():
+        lines.append(f" - {row['instrument_namn']} ({row['instrument_isin']}) - {row['weight']:.6e} "
+                     f"({row['landkod_emittent']}, {row['bransch']})")
+else:
+    lines.append("Topp 5 positioner: Ingen data tillgänglig.")
+
+if not df_country.empty:
+    country_parts = [f"{row['landkod_emittent']}: {row['weight']:.6e}" for _, row in df_country.iterrows()]
+    lines.append("Fördelning per land: " + " | ".join(country_parts))
+else:
+    lines.append("Fördelning per land: Ingen data.")
+
+if not df_industry.empty:
+    industry_parts = [f"{row['bransch']}: {row['weight']:.6e}" for _, row in df_industry.iterrows()]
+    lines.append("Fördelning per bransch: " + " | ".join(industry_parts))
+else:
+    lines.append("Fördelning per bransch: Ingen data.")
+
+summary_string = "\n".join(lines)
+
+# Expose the result as specified
+result = {"type": "string", "value": summary_string}
+2025-10-09 17:52:03 [INFO] Validating code requirements...
+2025-10-09 17:52:03 [INFO] Code validation successful.
+2025-10-09 17:52:03 [INFO] Cleaning the generated code...
+2025-10-09 17:52:03 [INFO] Executing code: import pandas as pd
+TABLE_NAME = 'table_bc816889ef5456da39f9f9e2ad533fbd'
+df_count = execute_sql_query(f'SELECT COUNT(*) AS holding_count FROM {TABLE_NAME}')
+holding_count = int(df_count.iloc[0]['holding_count']) if not df_count.empty else 0
+df_total = execute_sql_query(f'SELECT SUM(CAST(portfolio_weight AS DOUBLE)) AS total_weight FROM {TABLE_NAME}')
+total_weight = float(df_total.iloc[0]['total_weight']) if not df_total.empty else 0.0
+df_top = execute_sql_query(f"""
+SELECT instrument_namn, instrument_isin, landkod_emittent, bransch,
+       CAST(portfolio_weight AS DOUBLE) AS weight
+FROM {TABLE_NAME}
+ORDER BY weight DESC
+LIMIT 5
+""")
+df_country = execute_sql_query(f"""
+SELECT landkod_emittent, SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {TABLE_NAME}
+GROUP BY landkod_emittent
+ORDER BY weight DESC
+""")
+df_industry = execute_sql_query(f"""
+SELECT bransch, SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {TABLE_NAME}
+GROUP BY bransch
+ORDER BY weight DESC
+""")
+lines = []
+lines.append(f'Portföljen består av {holding_count} positioner.')
+lines.append(f'Total vikt (sum av portföljvikter): {total_weight:.6f}.')
+if not df_top.empty:
+    lines.append('Topp 5 positioner:')
+    for _, row in df_top.iterrows():
+        lines.append(f" - {row['instrument_namn']} ({row['instrument_isin']}) - {row['weight']:.6e} ({row['landkod_emittent']}, {row['bransch']})")
+else:
+    lines.append('Topp 5 positioner: Ingen data tillgänglig.')
+if not df_country.empty:
+    country_parts = [f"{row['landkod_emittent']}: {row['weight']:.6e}" for _, row in df_country.iterrows()]
+    lines.append('Fördelning per land: ' + ' | '.join(country_parts))
+else:
+    lines.append('Fördelning per land: Ingen data.')
+if not df_industry.empty:
+    industry_parts = [f"{row['bransch']}: {row['weight']:.6e}" for _, row in df_industry.iterrows()]
+    lines.append('Fördelning per bransch: ' + ' | '.join(industry_parts))
+else:
+    lines.append('Fördelning per bransch: Ingen data.')
+summary_string = '\n'.join(lines)
+result = {'type': 'string', 'value': summary_string}
+2025-10-09 17:52:05 [INFO] Response generated successfully.
+2025-10-09 17:53:06 [INFO] Question: är min portfölj bra och väl diversifierad?
+2025-10-09 17:53:06 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 17:53:06 [INFO] Prompt ID: 85376c4e-b890-43fd-a854-23ff2dfc86c2
+2025-10-09 17:53:06 [INFO] Generating new code...
+2025-10-09 17:53:06 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ är min portfölj bra och väl diversifierad?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 17:53:34 [INFO] Code Generated:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+sql_query = """
+WITH t AS (
+  SELECT
+     instrument_isin,
+     instrument_namn,
+     landkod_emittent,
+     bransch,
+     CAST(portfolio_weight AS DOUBLE) AS portfolio_weight
+  FROM table_bc816889ef5456da39f9f9e2ad533fbd
+),
+tot AS (
+  SELECT
+     COUNT(*) AS holdings,
+     COUNT(DISTINCT landkod_emittent) AS unique_countries,
+     COUNT(DISTINCT bransch) AS unique_brans,
+     SUM(portfolio_weight) AS total_weight,
+     SUM(portfolio_weight * portfolio_weight) AS sum_sq
+  FROM t
+),
+top AS (
+  SELECT
+     instrument_isin,
+     instrument_namn,
+     portfolio_weight
+  FROM t
+  ORDER BY portfolio_weight DESC
+  LIMIT 1
+)
+SELECT
+  tot.holdings,
+  tot.unique_countries,
+  tot.unique_brans,
+  tot.total_weight,
+  tot.sum_sq,
+  CASE WHEN tot.total_weight = 0 THEN NULL ELSE tot.sum_sq / (tot.total_weight * tot.total_weight) END AS hhi,
+  top.instrument_isin AS top_isin,
+  top.instrument_namn AS top_instrument,
+  top.portfolio_weight AS top_weight
+FROM tot, top;
+"""
+
+df = execute_sql_query(sql_query)
+
+# Result format as requested
+result = { "type": "dataframe", "value": df }
+2025-10-09 17:53:34 [INFO] Validating code requirements...
+2025-10-09 17:53:34 [INFO] Code validation successful.
+2025-10-09 17:53:34 [INFO] Cleaning the generated code...
+2025-10-09 17:53:34 [INFO] Executing code: import pandas as pd
+sql_query = """
+WITH t AS (
+  SELECT
+     instrument_isin,
+     instrument_namn,
+     landkod_emittent,
+     bransch,
+     CAST(portfolio_weight AS DOUBLE) AS portfolio_weight
+  FROM table_bc816889ef5456da39f9f9e2ad533fbd
+),
+tot AS (
+  SELECT
+     COUNT(*) AS holdings,
+     COUNT(DISTINCT landkod_emittent) AS unique_countries,
+     COUNT(DISTINCT bransch) AS unique_brans,
+     SUM(portfolio_weight) AS total_weight,
+     SUM(portfolio_weight * portfolio_weight) AS sum_sq
+  FROM t
+),
+top AS (
+  SELECT
+     instrument_isin,
+     instrument_namn,
+     portfolio_weight
+  FROM t
+  ORDER BY portfolio_weight DESC
+  LIMIT 1
+)
+SELECT
+  tot.holdings,
+  tot.unique_countries,
+  tot.unique_brans,
+  tot.total_weight,
+  tot.sum_sq,
+  CASE WHEN tot.total_weight = 0 THEN NULL ELSE tot.sum_sq / (tot.total_weight * tot.total_weight) END AS hhi,
+  top.instrument_isin AS top_isin,
+  top.instrument_namn AS top_instrument,
+  top.portfolio_weight AS top_weight
+FROM tot, top;
+"""
+df = execute_sql_query(sql_query)
+result = {'type': 'dataframe', 'value': df}
+2025-10-09 17:53:34 [INFO] Response generated successfully.
+2025-10-09 18:22:14 [INFO] Question: 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+2025-10-09 18:22:14 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 18:22:14 [INFO] Prompt ID: cc301235-ffe5-4a78-859e-75877702bbb4
+2025-10-09 18:22:14 [INFO] Generating new code...
+2025-10-09 18:22:14 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 18:22:14 [INFO] Retrying request to /chat/completions in 0.399438 seconds
+2025-10-09 18:22:14 [INFO] Retrying request to /chat/completions in 0.963058 seconds
+2025-10-09 18:22:16 [INFO] An error occurred during code generation: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+2025-10-09 18:22:16 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:16 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:16 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2025-10-09 18:22:16 [INFO] Retrying request to /chat/completions in 0.497408 seconds
+2025-10-09 18:22:17 [INFO] Retrying request to /chat/completions in 0.950088 seconds
+2025-10-09 18:22:18 [INFO] An error occurred during code generation: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+2025-10-09 18:22:18 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:18 [INFO] Retrying Code Generation (1/3)...
+2025-10-09 18:22:18 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:18 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2025-10-09 18:22:18 [INFO] Retrying request to /chat/completions in 0.455646 seconds
+2025-10-09 18:22:18 [INFO] Retrying request to /chat/completions in 0.967558 seconds
+2025-10-09 18:22:19 [INFO] An error occurred during code generation: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+2025-10-09 18:22:19 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:19 [INFO] Retrying Code Generation (2/3)...
+2025-10-09 18:22:19 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:19 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2025-10-09 18:22:20 [INFO] Retrying request to /chat/completions in 0.461985 seconds
+2025-10-09 18:22:20 [INFO] Retrying request to /chat/completions in 0.874036 seconds
+2025-10-09 18:22:21 [INFO] An error occurred during code generation: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+2025-10-09 18:22:21 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:21 [INFO] Retrying Code Generation (3/3)...
+2025-10-09 18:22:21 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:21 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2025-10-09 18:22:21 [INFO] Retrying request to /chat/completions in 0.391746 seconds
+2025-10-09 18:22:21 [INFO] Retrying request to /chat/completions in 0.894414 seconds
+2025-10-09 18:22:22 [INFO] An error occurred during code generation: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+2025-10-09 18:22:22 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Program Files\Python311\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 745, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 673, in completion
+    ) = self.make_sync_openai_chat_completion_request(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 237, in sync_wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 489, in make_sync_openai_chat_completion_request
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 471, in make_sync_openai_chat_completion_request
+    raw_response = openai_client.chat.completions.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2125, in completion
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 2097, in completion
+    response = openai_chat_completions.completion(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\llms\openai\openai.py", line 756, in completion
+    raise OpenAIError(
+litellm.llms.openai.common_utils.OpenAIError: Connection error.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\pandasai_litellm\litellm.py", line 68, in call
+    completion(
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1356, in wrapper
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\utils.py", line 1231, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\main.py", line 3733, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2273, in exception_type
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 502, in exception_type
+    raise InternalServerError(
+litellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+
+2025-10-09 18:22:22 [INFO] Maximum retry attempts exceeded. Last error: litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.
+2025-10-09 18:24:36 [INFO] Question: 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+2025-10-09 18:24:36 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 18:24:36 [INFO] Prompt ID: 03720692-02d3-47ce-8fcc-067dc74d83f9
+2025-10-09 18:24:36 [INFO] Generating new code...
+2025-10-09 18:24:36 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+The following is the clients prompt:
+vad tycker du om min portfölj?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 18:25:17 [INFO] Code Generated:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Define the table to query
+table_name = "table_bc816889ef5456da39f9f9e2ad533fbd"
+
+# SQL queries leveraging aggregation, sorting, and grouping (all done in SQL as requested)
+sql_top5 = f"""
+SELECT
+  instrument_isin,
+  instrument_namn,
+  landkod_emittent,
+  bransch,
+  CAST(portfolio_weight AS DOUBLE) AS weight
+FROM {table_name}
+ORDER BY weight DESC
+LIMIT 5
+"""
+
+sql_total = f"""
+SELECT SUM(CAST(portfolio_weight AS DOUBLE)) AS total_weight
+FROM {table_name}
+"""
+
+sql_by_bransch = f"""
+SELECT
+  bransch,
+  SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {table_name}
+GROUP BY bransch
+ORDER BY weight DESC
+"""
+
+sql_by_land = f"""
+SELECT
+  landkod_emittent,
+  SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {table_name}
+GROUP BY landkod_emittent
+ORDER BY weight DESC
+"""
+
+# Execute queries
+df_top5 = execute_sql_query(sql_top5)
+df_total = execute_sql_query(sql_total)
+df_by_bransch = execute_sql_query(sql_by_bransch)
+df_by_land = execute_sql_query(sql_by_land)
+
+# Compute total weight
+total_weight = float(df_total.iloc[0]["total_weight"]) if not df_total.empty else 0.0
+
+# Ensure numeric type for weights and compute percentage of the portfolio
+if not df_top5.empty:
+    df_top5["weight"] = df_top5["weight"].astype(float)
+    df_top5["pct_of_portfolio"] = df_top5["weight"].apply(lambda w: (w / total_weight * 100.0) if total_weight != 0 else 0.0)
+else:
+    df_top5 = pd.DataFrame(columns=["instrument_isin", "instrument_namn", "landkod_emittent", "bransch", "weight", "pct_of_portfolio"])
+
+# Build a human-readable summary in Swedish
+summary_lines = []
+summary_lines.append("Sammanfattning av din portfölj:")
+summary_lines.append(f"- Antal visade innehav i topplistan: {len(df_top5)}")
+summary_lines.append("Top innehav (baserat på andel av portföljen):")
+if not df_top5.empty:
+    for _, row in df_top5.iterrows():
+        namn = row.get("instrument_namn", "")
+        isin = row.get("instrument_isin", "")
+        sektor = row.get("bransch", "")
+        pct = row.get("pct_of_portfolio", 0.0)
+        summary_lines.append(f"  - {namn} (ISIN: {isin}), sektor: {sektor}, vikt: {pct:.2f}%")
+else:
+    summary_lines.append("  Ingen data tillgänglig för toppinnehav.")
+
+summary_lines.append("Diversifiering efter sektor (procentandel per sektor):")
+if not df_by_bransch.empty:
+    for _, r in df_by_bransch.iterrows():
+        sektor = r.get("bransch", "")
+        w = float(r.get("weight", 0.0))
+        pct = (w / total_weight * 100.0) if total_weight != 0 else 0.0
+        summary_lines.append(f"  - {sektor}: {pct:.2f}%")
+else:
+    summary_lines.append("  Ingen data tillgänglig för sektorfördelning.")
+
+summary_lines.append("Diversifiering efter land (procentandel per land):")
+if not df_by_land.empty:
+    for _, r in df_by_land.iterrows():
+        land = r.get("landkod_emittent", "")
+        w = float(r.get("weight", 0.0))
+        pct = (w / total_weight * 100.0) if total_weight != 0 else 0.0
+        summary_lines.append(f"  - {land}: {pct:.2f}%")
+else:
+    summary_lines.append("  Ingen data tillgänglig för geografisk fördelning.")
+
+summary_lines.append("")
+summary_lines.append("Observations och rekommendationer:")
+summary_lines.append("- Portföljen verkar visa mycket små absoluta vikter i de angivna innehaven och därmed mycket begränsad uppskattad storlek i varje position.")
+summary_lines.append("- Det verkar finnas en stark geografisk koncentration till UAE (AE), vilket innebär koncentrationsrisk mot en enskild marknad och valuta.")
+summary_lines.append("- Nackdelar: hög koncentrationsrisk, möjlig låg likviditet i små positioner, samt bristande diversifiering över sektorer och regioner.")
+summary_lines.append("- Förbättringsförslag:")
+summary_lines.append("  1) Öka global diversifiering genom breda globala indexfonder/ETFer och eventuellt obligationsfonder för kärnan i portföljen.")
+summary_lines.append("  2) Om UAE-exponering behålls, överväg att inkorporera den som en mindre del av en större, bredare portfölj för att minska koncentrationsrisken.")
+summary_lines.append("  3) Säkerställ att portföljvikterna summerar till rätt total (gärna nära 100% i procentbaserad syn).")
+summary_lines.append("  4) Adoptera en core-satellite-struktur för en tydligare riskbalansering.")
+
+summary_text = "\n".join(summary_lines)
+
+# Expose the result in the required format
+result = {"type": "string", "value": summary_text}
+2025-10-09 18:25:17 [INFO] Validating code requirements...
+2025-10-09 18:25:17 [INFO] Code validation successful.
+2025-10-09 18:25:17 [INFO] Cleaning the generated code...
+2025-10-09 18:25:17 [INFO] Executing code: import pandas as pd
+table_name = 'table_bc816889ef5456da39f9f9e2ad533fbd'
+sql_top5 = f"""
+SELECT
+  instrument_isin,
+  instrument_namn,
+  landkod_emittent,
+  bransch,
+  CAST(portfolio_weight AS DOUBLE) AS weight
+FROM {table_name}
+ORDER BY weight DESC
+LIMIT 5
+"""
+sql_total = f"""
+SELECT SUM(CAST(portfolio_weight AS DOUBLE)) AS total_weight
+FROM {table_name}
+"""
+sql_by_bransch = f"""
+SELECT
+  bransch,
+  SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {table_name}
+GROUP BY bransch
+ORDER BY weight DESC
+"""
+sql_by_land = f"""
+SELECT
+  landkod_emittent,
+  SUM(CAST(portfolio_weight AS DOUBLE)) AS weight
+FROM {table_name}
+GROUP BY landkod_emittent
+ORDER BY weight DESC
+"""
+df_top5 = execute_sql_query(sql_top5)
+df_total = execute_sql_query(sql_total)
+df_by_bransch = execute_sql_query(sql_by_bransch)
+df_by_land = execute_sql_query(sql_by_land)
+total_weight = float(df_total.iloc[0]['total_weight']) if not df_total.empty else 0.0
+if not df_top5.empty:
+    df_top5['weight'] = df_top5['weight'].astype(float)
+    df_top5['pct_of_portfolio'] = df_top5['weight'].apply(lambda w: w / total_weight * 100.0 if total_weight != 0 else 0.0)
+else:
+    df_top5 = pd.DataFrame(columns=['instrument_isin', 'instrument_namn', 'landkod_emittent', 'bransch', 'weight', 'pct_of_portfolio'])
+summary_lines = []
+summary_lines.append('Sammanfattning av din portfölj:')
+summary_lines.append(f'- Antal visade innehav i topplistan: {len(df_top5)}')
+summary_lines.append('Top innehav (baserat på andel av portföljen):')
+if not df_top5.empty:
+    for _, row in df_top5.iterrows():
+        namn = row.get('instrument_namn', '')
+        isin = row.get('instrument_isin', '')
+        sektor = row.get('bransch', '')
+        pct = row.get('pct_of_portfolio', 0.0)
+        summary_lines.append(f'  - {namn} (ISIN: {isin}), sektor: {sektor}, vikt: {pct:.2f}%')
+else:
+    summary_lines.append('  Ingen data tillgänglig för toppinnehav.')
+summary_lines.append('Diversifiering efter sektor (procentandel per sektor):')
+if not df_by_bransch.empty:
+    for _, r in df_by_bransch.iterrows():
+        sektor = r.get('bransch', '')
+        w = float(r.get('weight', 0.0))
+        pct = w / total_weight * 100.0 if total_weight != 0 else 0.0
+        summary_lines.append(f'  - {sektor}: {pct:.2f}%')
+else:
+    summary_lines.append('  Ingen data tillgänglig för sektorfördelning.')
+summary_lines.append('Diversifiering efter land (procentandel per land):')
+if not df_by_land.empty:
+    for _, r in df_by_land.iterrows():
+        land = r.get('landkod_emittent', '')
+        w = float(r.get('weight', 0.0))
+        pct = w / total_weight * 100.0 if total_weight != 0 else 0.0
+        summary_lines.append(f'  - {land}: {pct:.2f}%')
+else:
+    summary_lines.append('  Ingen data tillgänglig för geografisk fördelning.')
+summary_lines.append('')
+summary_lines.append('Observations och rekommendationer:')
+summary_lines.append('- Portföljen verkar visa mycket små absoluta vikter i de angivna innehaven och därmed mycket begränsad uppskattad storlek i varje position.')
+summary_lines.append('- Det verkar finnas en stark geografisk koncentration till UAE (AE), vilket innebär koncentrationsrisk mot en enskild marknad och valuta.')
+summary_lines.append('- Nackdelar: hög koncentrationsrisk, möjlig låg likviditet i små positioner, samt bristande diversifiering över sektorer och regioner.')
+summary_lines.append('- Förbättringsförslag:')
+summary_lines.append('  1) Öka global diversifiering genom breda globala indexfonder/ETFer och eventuellt obligationsfonder för kärnan i portföljen.')
+summary_lines.append('  2) Om UAE-exponering behålls, överväg att inkorporera den som en mindre del av en större, bredare portfölj för att minska koncentrationsrisken.')
+summary_lines.append('  3) Säkerställ att portföljvikterna summerar till rätt total (gärna nära 100% i procentbaserad syn).')
+summary_lines.append('  4) Adoptera en core-satellite-struktur för en tydligare riskbalansering.')
+summary_text = '\n'.join(summary_lines)
+result = {'type': 'string', 'value': summary_text}
+2025-10-09 18:25:17 [INFO] Response generated successfully.
+2025-10-09 18:34:04 [INFO] Question: 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+Make sure to explain all financial concepts in your answers.
+The column "andel_av_fond" actually means the clients investments in swedish crowns.
+The following is the clients prompt:
+Tror du att denna portfölj kommer slå stockholmsbörsen under 2026?
+2025-10-09 18:34:04 [INFO] Running PandasAI with litellm LLM...
+2025-10-09 18:34:04 [INFO] Prompt ID: a7029789-177b-401e-b2a0-686e4dfc6f5d
+2025-10-09 18:34:04 [INFO] Generating new code...
+2025-10-09 18:34:04 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_bc816889ef5456da39f9f9e2ad533fbd" columns="[{"name": "instrument_isin", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "andel_av_fond", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "instrument_namn", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "landkod_emittent", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "bransch", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "portfolio_weight", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="4563x6">
+instrument_isin,andel_av_fond,instrument_namn,landkod_emittent,bransch,portfolio_weight
+AEA000201011,0.37699999999999995,Abu Dhabi Commercial Bank PJSC,AE,Financials,3.927307059788621e-06
+AEE000301011,0.7539999999999999,EMAAR,AE,Real Estate,7.854614119577241e-06
+AEE000401019,0.0,Emirates Telecom Ord Shs,AE,Communication Services,0.0
+AEI000201014,2.6390000000000002,International Holdings Ord Shs,AE,Industrials,2.749114941852035e-05
+AEN000101016,0.37699999999999995,First Abu Dhabi Bank,AE,Financials,3.927307059788621e-06
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ 
+Your role is to be a private banker at a firm that offers financial advise to clients.
+You are an expert in portfolio theory, investment strategies, fund investments, stock investments and macro economy. 
+Summarize the users portfolio, the pros and cons with the portfolio composition.
+Give your opinion on whether the clients portfolio and investment strategy could be improved somehow.
+Make sure to explain all financial concepts in your answers.
+The column "andel_av_fond" actually means the clients investments in swedish crowns.
+The following is the clients prompt:
+Tror du att denna portfölj kommer slå stockholmsbörsen under 2026?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2025-10-09 18:34:39 [INFO] Code Generated:
+import pandas as pd
+
+def format_currency_sek(value: float) -> str:
+    try:
+        val = float(value)
+    except:
+        return str(value)
+    # Format with thousands separator and two decimals
+    return f"SEK {val:,.2f}"
+
+def safe_float(x) -> float:
+    try:
+        return float(x)
+    except:
+        return 0.0
+
+# Queries (using the provided table). Cast to DOUBLE since the schema marks as string.
+total_query = """
+SELECT
+  CAST(SUM(CAST(andel_av_fond AS DOUBLE)) AS DOUBLE) AS total_value,
+  COUNT(*) AS positions
+FROM table_bc816889ef5456da39f9f9e2ad533fbd
+"""
+
+instrument_query = """
+SELECT
+  instrument_namn,
+  CAST(SUM(CAST(andel_av_fond AS DOUBLE)) AS DOUBLE) AS amount
+FROM table_bc816889ef5456da39f9f9e2ad533fbd
+GROUP BY instrument_namn
+ORDER BY amount DESC
+"""
+
+bransch_query = """
+SELECT
+  bransch,
+  CAST(SUM(CAST(andel_av_fond AS DOUBLE)) AS DOUBLE) AS amount
+FROM table_bc816889ef5456da39f9f9e2ad533fbd
+GROUP BY bransch
+ORDER BY amount DESC
+"""
+
+# Execute queries
+df_total = execute_sql_query(total_query)
+df_instrument = execute_sql_query(instrument_query)
+df_bransch = execute_sql_query(bransch_query)
+
+# Initialize outputs
+total_value = 0.0
+positions = 0
+top_holdings_text = []
+sector_allocation_text = []
+
+if not df_total.empty:
+    total_value = safe_float(df_total.iloc[0]["total_value"])
+    positions = int(df_total.iloc[0]["positions"]) if "positions" in df_total.columns else 0
+
+# Top holdings (up to 3)
+if not df_instrument.empty:
+    top_n = min(3, len(df_instrument))
+    for idx in range(top_n):
+        row = df_instrument.iloc[idx]
+        name = row.get("instrument_namn", "")
+        amount = safe_float(row.get("amount", 0.0))
+        percent = (amount / total_value * 100) if total_value > 0 else 0.0
+        top_holdings_text.append(f"- {name}: {format_currency_sek(amount)} ({percent:.1f}%)")
+
+# Sector allocation
+if not df_bransch.empty and total_value > 0:
+    for idx, row in df_bransch.iterrows():
+        sector = row.get("bransch", "")
+        amount = safe_float(row.get("amount", 0.0))
+        percent = (amount / total_value) * 100
+        sector_allocation_text.append(f"- {sector}: {percent:.1f}%")
+
+# Build a summary in Swedish
+summary_lines = []
+summary_lines.append("Portföljöversikt:")
+summary_lines.append(f"- Totalt värde: {format_currency_sek(total_value)}")
+summary_lines.append(f"- Antal positioner: {positions}")
+summary_lines.append("Top holdings (baserat på största exponering):")
+if top_holdings_text:
+    summary_lines.extend(top_holdings_text)
+else:
+    summary_lines.append("- Ingen data tillgänglig.")
+summary_lines.append("Rumsfördelning efter sektor (andel av portföljen):")
+if sector_allocation_text:
+    summary_lines.extend(sector_allocation_text)
+else:
+    summary_lines.append("- Ingen sektorinformation tillgänglig.")
+
+summary_lines.append("")
+summary_lines.append("Kommentar och bedömning:")
+summary_lines.append("Portföljen verkar vara ganska koncentrerad i ett fåtal underliggande tillgångar och främst utländska emitenter. Detta medför koncentrationsrisk (risk att en liten uppsättning innehav dominerar avkastningen) och valutaexponering.")
+summary_lines.append("För- och nackdelar med nuvarande sammansättning:")
+summary_lines.append(" - Fördelar:")
+summary_lines.append("   • Enkelhet och tydlig exponering mot specifika tillgångar/industrier.")
+summary_lines.append("   • Kan vara bra om innehav utgörs av högkvalitativa emitenter i stabila sektorer.")
+summary_lines.append(" - Nackdelar:")
+summary_lines.append("   • Automatiskt högt exponeringsrisk om få aktier/emitenter dominerar (koncentration).")
+summary_lines.append("   • Avsaknad av exponering mot den svenska börsen (OMXS30) kan innebära att portföljen inte följer eller slår den svenska benchmarken under 2026, särskilt när växelkursrisker inte används för hedging.")
+summary_lines.append("   • Behov av fler tillgångsslag för riskminimering (t.ex. obligationer/ränteexponering, internationell diversifiering).")
+summary_lines.append(" - Inflation och räntor påverkar avkastningen i SEK över tid. Valutarisk kan förstärka eller dämpa avkastningen beroende på hur portföljen är viktad mot utländska emitenter.")
+
+summary_lines.append("")
+summary_lines.append("Förbättringsförslag:")
+summary_lines.append("1) Öka diversifiering genom att lägga till exponering mot OMX-index eller svenska aktier (t.ex. via breda indexfonder eller ETF:er som följer OMXS30 eller bredare OMXSPI).")
+summary_lines.append("2) Lägg till räntebärande komponenter (stats- eller företagsobligationer) för att stärka portföljens riskbalans och minska volatilitet.")
+summary_lines.append("3) Överväg valutahedging eller regional diversifiering för att reducera valuta-risk om nuvarande portfölj har betydande utländska exponeringar.")
+summary_lines.append("4) Implementera regelbunden rebalansering för att behålla önskad risknivå och proportioner över tid.")
+summary_lines.append("5) Definiera en målavkastning och riskram (t ex sharpe-kvot, volatilitet) och mät framsteg mot en lämplig benchmark.")
+
+# Final result as required by the prompt
+result = {
+    "type": "string",
+    "value": "\n".join(summary_lines)
+}
+2025-10-09 18:34:39 [INFO] Validating code requirements...
+2025-10-09 18:34:39 [INFO] Code validation successful.
+2025-10-09 18:34:39 [INFO] Cleaning the generated code...
+2025-10-09 18:34:39 [INFO] Executing code: import pandas as pd
+
+
+def format_currency_sek(value: float) ->str:
+    try:
+        val = float(value)
+    except:
+        return str(value)
+    return f'SEK {val:,.2f}'
+
+
+def safe_float(x) ->float:
+    try:
+        return float(x)
+    except:
+        return 0.0
+
+
+total_query = """
+SELECT
+  CAST(SUM(CAST(andel_av_fond AS DOUBLE)) AS DOUBLE) AS total_value,
+  COUNT(*) AS positions
+FROM table_bc816889ef5456da39f9f9e2ad533fbd
+"""
+instrument_query = """
+SELECT
+  instrument_namn,
+  CAST(SUM(CAST(andel_av_fond AS DOUBLE)) AS DOUBLE) AS amount
+FROM table_bc816889ef5456da39f9f9e2ad533fbd
+GROUP BY instrument_namn
+ORDER BY amount DESC
+"""
+bransch_query = """
+SELECT
+  bransch,
+  CAST(SUM(CAST(andel_av_fond AS DOUBLE)) AS DOUBLE) AS amount
+FROM table_bc816889ef5456da39f9f9e2ad533fbd
+GROUP BY bransch
+ORDER BY amount DESC
+"""
+df_total = execute_sql_query(total_query)
+df_instrument = execute_sql_query(instrument_query)
+df_bransch = execute_sql_query(bransch_query)
+total_value = 0.0
+positions = 0
+top_holdings_text = []
+sector_allocation_text = []
+if not df_total.empty:
+    total_value = safe_float(df_total.iloc[0]['total_value'])
+    positions = int(df_total.iloc[0]['positions']) if 'positions' in df_total.columns else 0
+if not df_instrument.empty:
+    top_n = min(3, len(df_instrument))
+    for idx in range(top_n):
+        row = df_instrument.iloc[idx]
+        name = row.get('instrument_namn', '')
+        amount = safe_float(row.get('amount', 0.0))
+        percent = amount / total_value * 100 if total_value > 0 else 0.0
+        top_holdings_text.append(f'- {name}: {format_currency_sek(amount)} ({percent:.1f}%)')
+if not df_bransch.empty and total_value > 0:
+    for idx, row in df_bransch.iterrows():
+        sector = row.get('bransch', '')
+        amount = safe_float(row.get('amount', 0.0))
+        percent = amount / total_value * 100
+        sector_allocation_text.append(f'- {sector}: {percent:.1f}%')
+summary_lines = []
+summary_lines.append('Portföljöversikt:')
+summary_lines.append(f'- Totalt värde: {format_currency_sek(total_value)}')
+summary_lines.append(f'- Antal positioner: {positions}')
+summary_lines.append('Top holdings (baserat på största exponering):')
+if top_holdings_text:
+    summary_lines.extend(top_holdings_text)
+else:
+    summary_lines.append('- Ingen data tillgänglig.')
+summary_lines.append('Rumsfördelning efter sektor (andel av portföljen):')
+if sector_allocation_text:
+    summary_lines.extend(sector_allocation_text)
+else:
+    summary_lines.append('- Ingen sektorinformation tillgänglig.')
+summary_lines.append('')
+summary_lines.append('Kommentar och bedömning:')
+summary_lines.append('Portföljen verkar vara ganska koncentrerad i ett fåtal underliggande tillgångar och främst utländska emitenter. Detta medför koncentrationsrisk (risk att en liten uppsättning innehav dominerar avkastningen) och valutaexponering.')
+summary_lines.append('För- och nackdelar med nuvarande sammansättning:')
+summary_lines.append(' - Fördelar:')
+summary_lines.append('   • Enkelhet och tydlig exponering mot specifika tillgångar/industrier.')
+summary_lines.append('   • Kan vara bra om innehav utgörs av högkvalitativa emitenter i stabila sektorer.')
+summary_lines.append(' - Nackdelar:')
+summary_lines.append('   • Automatiskt högt exponeringsrisk om få aktier/emitenter dominerar (koncentration).')
+summary_lines.append('   • Avsaknad av exponering mot den svenska börsen (OMXS30) kan innebära att portföljen inte följer eller slår den svenska benchmarken under 2026, särskilt när växelkursrisker inte används för hedging.')
+summary_lines.append('   • Behov av fler tillgångsslag för riskminimering (t.ex. obligationer/ränteexponering, internationell diversifiering).')
+summary_lines.append(' - Inflation och räntor påverkar avkastningen i SEK över tid. Valutarisk kan förstärka eller dämpa avkastningen beroende på hur portföljen är viktad mot utländska emitenter.')
+summary_lines.append('')
+summary_lines.append('Förbättringsförslag:')
+summary_lines.append('1) Öka diversifiering genom att lägga till exponering mot OMX-index eller svenska aktier (t.ex. via breda indexfonder eller ETF:er som följer OMXS30 eller bredare OMXSPI).')
+summary_lines.append('2) Lägg till räntebärande komponenter (stats- eller företagsobligationer) för att stärka portföljens riskbalans och minska volatilitet.')
+summary_lines.append('3) Överväg valutahedging eller regional diversifiering för att reducera valuta-risk om nuvarande portfölj har betydande utländska exponeringar.')
+summary_lines.append('4) Implementera regelbunden rebalansering för att behålla önskad risknivå och proportioner över tid.')
+summary_lines.append('5) Definiera en målavkastning och riskram (t ex sharpe-kvot, volatilitet) och mät framsteg mot en lämplig benchmark.')
+result = {'type': 'string', 'value': '\n'.join(summary_lines)}
+2025-10-09 18:34:40 [INFO] Response generated successfully.
