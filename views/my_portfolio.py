@@ -25,15 +25,14 @@ def my_portfolio_page():
     st.session_state["all_funds"] = all_funds
     st.session_state["mapping"] = mapping
     st.subheader("Select holdings and Investment Amounts", anchor = False)
-
     # Step 1: Multi-select holding names
     holding_options = st.session_state["mapping"]['instrument_namn'].unique()
     selected_holdings = st.multiselect("Choose Instruments", holding_options, accept_new_options = True)
 
     # Step 2: Input invested amount per selected stock
-    input_dict = {0: {}}
+    input_dict = {0: {"Handelsbanken Aktiv 100": 200}}
     for holding in selected_holdings:
-        invested = st.number_input(f"Amount invested in {holding}", min_value=0, value=0, step=100)
+        invested = st.number_input(f"Amount invested in {holding}", min_value=0, value=10000, step=100)
         if invested > 0:
             input_dict[0][holding] = invested
 
@@ -43,6 +42,7 @@ def my_portfolio_page():
         my_portfolio_df.sort_values(by="andel_av_fond")
         my_portfolio_df["portfolio_weight"] = my_portfolio_df['andel_av_fond'] / my_portfolio_df['andel_av_fond'].sum()
         top, results_df, details_map = rank_fund_overlaps(my_portfolio_df, all_funds)
+        st.session_state["top_overlaps"] = top
         col1, col2, col3 = st.columns(3)
         with col1:
             st.metric(label="**Number of holdings in portfolio:**", value=f"{len(my_portfolio_df)}".replace(",", " "), border=True)
@@ -59,8 +59,13 @@ def my_portfolio_page():
         overlap_tab) = st.tabs(["Chat bot",
                                 "Portfolio breakdown",
                                 "Fund overlap",])
-
         with chat_bot_tab:
+            for qa in st.session_state["conversation"]:
+                with st.chat_message("User"):
+                    st.write(qa[0])
+                if len(qa) > 1:
+                    with st.chat_message("AI"):
+                        st.write(qa[1])
             bot(my_portfolio_df)
 
         with portfolio_breakdown_tab:
