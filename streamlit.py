@@ -8,15 +8,16 @@ from views.overview_data import overview_data_page
 
 def main_script():
     st.set_page_config(layout="wide")
+    if not st.session_state.get("conversation"):
+        st.session_state["conversation"] = []
     with st.sidebar:
-        st.write("tyoes")
+        st.write("tyes")
         for qa in st.session_state["conversation"]:
             st.write(type(qa[0]))
             if len(qa)>1:
                 st.write(type(qa[1]))
     st.title(":material/finance_mode: Portfolio Screener", anchor=False)
-    if not st.session_state.get("conversation"):
-        st.session_state["conversation"] = []
+
     pages = st.navigation(pages=[run_my_portfolio_page(), run_overview_data_page()])
     pages.run()
 
